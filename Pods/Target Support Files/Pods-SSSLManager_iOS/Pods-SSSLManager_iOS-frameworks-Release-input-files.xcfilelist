@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework
+${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework

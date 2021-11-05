@@ -1,0 +1,20 @@
+input_dir: SSSLManager_iOS
+output_dir: SSSLManager_iOS/Resources/Generated/
+xcassets:
+  - inputs: Resources/Images.xcassets
+    outputs:
+      - templateName: swift5
+        output: Images.swift
+        params:
+            enumName: Images
+  - inputs: Resources/Colors.xcassets
+    outputs:
+      - templateName: swift5
+        output: Colors.swift
+        params:
+            enumName: Colors
+ib:
+    inputs: Scenes
+    outputs:
+      - templateName: scenes-swift5
+        output: Storyboards.swift
