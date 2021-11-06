@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		800CB69259B81D277FDC14BC /* Pods_SSSLManager_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E877306A7A854BF2360FF0 /* Pods_SSSLManager_iOS.framework */; };
+		D56EE85D273688550060EA35 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56EE85C273688550060EA35 /* LoginPresenter.swift */; };
+		D56EE85F2736886C0060EA35 /* LoginPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56EE85E2736886C0060EA35 /* LoginPresentationModel.swift */; };
+		D56EE8612736888D0060EA35 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56EE8602736888D0060EA35 /* BaseView.swift */; };
 		D59685E72735CCB9007A3AB2 /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59685E62735CCB9007A3AB2 /* ProfileAPI.swift */; };
 		D59685E92735CCFD007A3AB2 /* ProfileDTOs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59685E82735CCFD007A3AB2 /* ProfileDTOs.swift */; };
 		D59685EB2735D323007A3AB2 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D59685EA2735D323007A3AB2 /* Authentication.storyboard */; };
@@ -48,6 +51,9 @@
 		10E877306A7A854BF2360FF0 /* Pods_SSSLManager_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSSLManager_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A793CA0A8F012D6436A570A /* Pods-SSSLManager_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSLManager_iOS.debug.xcconfig"; path = "Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B2B6FAD2AF7F0863E524F028 /* Pods-SSSLManager_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSLManager_iOS.release.xcconfig"; path = "Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		D56EE85C273688550060EA35 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		D56EE85E2736886C0060EA35 /* LoginPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresentationModel.swift; sourceTree = "<group>"; };
+		D56EE8602736888D0060EA35 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		D59685E62735CCB9007A3AB2 /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
 		D59685E82735CCFD007A3AB2 /* ProfileDTOs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDTOs.swift; sourceTree = "<group>"; };
 		D59685EA2735D323007A3AB2 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
@@ -110,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				D59685EF2735D3DF007A3AB2 /* LoginViewController.swift */,
+				D56EE85C273688550060EA35 /* LoginPresenter.swift */,
+				D56EE85E2736886C0060EA35 /* LoginPresentationModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -159,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				D5BEF975273573590054C1B9 /* ArrayExtension.swift */,
+				D56EE8602736888D0060EA35 /* BaseView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -426,6 +435,7 @@
 				D5D43FAC27352EF100EDE6B0 /* ViewController.swift in Sources */,
 				D5D43FD427354A5200EDE6B0 /* SSSLAuthCredentials.swift in Sources */,
 				D5D43FDD27355C8A00EDE6B0 /* Login.swift in Sources */,
+				D56EE85F2736886C0060EA35 /* LoginPresentationModel.swift in Sources */,
 				D5BEF9712735698A0054C1B9 /* URLRequestExtension.swift in Sources */,
 				D5D43FCA273544E100EDE6B0 /* NetworkConfigurator.swift in Sources */,
 				D5D43FD2273549E800EDE6B0 /* SSSLAuthenticator.swift in Sources */,
@@ -446,11 +456,13 @@
 				D5BEF96A2735666F0054C1B9 /* AuthenticationDTOs.swift in Sources */,
 				D59685F72735D59F007A3AB2 /* Images.swift in Sources */,
 				D5BEF9782735745A0054C1B9 /* AuthenticationCoordinator.swift in Sources */,
+				D56EE85D273688550060EA35 /* LoginPresenter.swift in Sources */,
 				D5BEF976273573590054C1B9 /* ArrayExtension.swift in Sources */,
 				D59685E72735CCB9007A3AB2 /* ProfileAPI.swift in Sources */,
 				D5D43FCD2735458100EDE6B0 /* TokenManager.swift in Sources */,
 				D59685F02735D3DF007A3AB2 /* LoginViewController.swift in Sources */,
 				D5D43FD627354D1D00EDE6B0 /* AuthenticationService.swift in Sources */,
+				D56EE8612736888D0060EA35 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

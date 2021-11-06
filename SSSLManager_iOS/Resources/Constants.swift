@@ -9,8 +9,8 @@ import Foundation
 
 struct Constants {
     struct Network {
-        static let webBaseUrl: String = "https://"
-        static let serverDomain: String = "localhost:8080"
+        static let webBaseUrl: String = "http://"
+        static let serverDomain: String = "127.0.0.1:8080"
         static let serverBaseUrl: String = "\(webBaseUrl)\(serverDomain)"
         static let serverUrl: String = "\(serverBaseUrl)"
     }

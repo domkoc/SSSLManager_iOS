@@ -5,6 +5,7 @@
 //  Created by Kocka Dominik Csaba on 2021. 11. 05..
 //
 
+import IQKeyboardManagerSwift
 import UIKit
 
 @main
@@ -13,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Self.launchOptions = launchOptions
+        IQKeyboardManager.shared.enable = true
         return true
     }
     // MARK: UISceneSession Lifecycle

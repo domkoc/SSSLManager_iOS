@@ -44,13 +44,13 @@ extension AuthenticationCoordinator: AuthenticationCoordinatorInput {
     func navigateToRegistration() { }
     func navigateToLogin() {
         let loginViewController = AuthenticationViewControllerFactory.makeLoginViewController()
-//        let presenter = LoginPresenter(coordinator: self,
-//                                       interactor: interactor,
-//                                       view: loginViewController)
-//        loginViewController.presenter = presenter
+        let presenter = LoginPresenter(coordinator: self,
+                                       interactor: interactor,
+                                       view: loginViewController)
+        loginViewController.presenter = presenter
         rootViewController?.setNavigationBarHidden(true, animated: false)
         rootViewController?.pushViewController(loginViewController, animated: true)
     }
-    func navigateToMainScreen() { }
+    func navigateToMainScreen() { print("logged in") }
     func navigateBackToLogin() { }
 }

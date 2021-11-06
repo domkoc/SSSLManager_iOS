@@ -8,6 +8,7 @@ target 'SSSLManager_iOS' do
   pod 'SwiftGen', '~> 6.0'
   pod 'Kingfisher', '~> 7.0'
   pod 'KeychainAccess'
+  pod 'IQKeyboardManagerSwift'
 
   # Pods for SSSLManager_iOS
 end
