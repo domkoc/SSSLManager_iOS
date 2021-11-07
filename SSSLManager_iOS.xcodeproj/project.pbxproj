@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		800CB69259B81D277FDC14BC /* Pods_SSSLManager_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E877306A7A854BF2360FF0 /* Pods_SSSLManager_iOS.framework */; };
+		D52C3B222737DC740060FDFC /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C3B212737DC740060FDFC /* ErrorManager.swift */; };
 		D56EE85D273688550060EA35 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56EE85C273688550060EA35 /* LoginPresenter.swift */; };
 		D56EE85F2736886C0060EA35 /* LoginPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56EE85E2736886C0060EA35 /* LoginPresentationModel.swift */; };
 		D56EE8612736888D0060EA35 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56EE8602736888D0060EA35 /* BaseView.swift */; };
@@ -51,6 +52,7 @@
 		10E877306A7A854BF2360FF0 /* Pods_SSSLManager_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSSLManager_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A793CA0A8F012D6436A570A /* Pods-SSSLManager_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSLManager_iOS.debug.xcconfig"; path = "Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B2B6FAD2AF7F0863E524F028 /* Pods-SSSLManager_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSLManager_iOS.release.xcconfig"; path = "Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		D52C3B212737DC740060FDFC /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		D56EE85C273688550060EA35 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		D56EE85E2736886C0060EA35 /* LoginPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresentationModel.swift; sourceTree = "<group>"; };
 		D56EE8602736888D0060EA35 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				D5D43FCC2735458100EDE6B0 /* TokenManager.swift */,
 				D5D43FD527354D1D00EDE6B0 /* AuthenticationService.swift */,
 				D5BEF963273563C80054C1B9 /* UserService.swift */,
+				D52C3B212737DC740060FDFC /* ErrorManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				D5D43FDB27355B6C00EDE6B0 /* APIBase.swift in Sources */,
 				D5D43FC827353F0800EDE6B0 /* AppCoordinator.swift in Sources */,
 				D5BEF96C273567B90054C1B9 /* NetworkManager.swift in Sources */,
+				D52C3B222737DC740060FDFC /* ErrorManager.swift in Sources */,
 				D5D43FCF2735463700EDE6B0 /* Constants.swift in Sources */,
 				D59685F62735D59F007A3AB2 /* Storyboards.swift in Sources */,
 				D59685ED2735D334007A3AB2 /* AuthenticationViewControllerFactory.swift in Sources */,

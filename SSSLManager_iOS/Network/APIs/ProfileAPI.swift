@@ -24,9 +24,11 @@ extension ProfileAPI: ProfileAPIInput {
                                         case .success(let profile):
                                             completion(.success(profile))
                                         case .customError(let error):
-                                            completion(.error(error.errorsString))
+                                            let message = self.errorManager.errorMessage(for: error)
+                                            completion(.error(message))
                                         case .other:
-                                            completion(.error("Other error occured"))
+                                            let message = self.errorManager.errorMessage()
+                                            completion(.error(message))
                                         }
                                       })
     }

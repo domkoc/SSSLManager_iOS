@@ -7,22 +7,8 @@
 
 import Foundation
 
-struct ErrorDto: Codable {
-    var errorCode: Int?
-    var errorKey: String?
-    var defaultMessage: String?
-    var parameters: [String]?
-}
-
 struct ErrorResponse: Decodable {
-    var traceId: String?
-    var errors: [ErrorDto]?
-}
-
-extension ErrorResponse {
-    var errorsString: String {
-        errors?.compactMap { $0.defaultMessage }.joinedWithNewLine ?? ""
-    }
+    let reason: String
 }
 
 struct EmptyDto: Codable { }

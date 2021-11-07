@@ -14,7 +14,6 @@ struct LoginDTO: Codable {
 
 struct UserCredentialsDto: Codable {
     var token: String?
-    var expiration: Double
-    var userId: Int?
-    var userName: String?
+    var user: ProfileDownloadDto
+    let expiration: Double?
 }

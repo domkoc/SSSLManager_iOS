@@ -49,16 +49,16 @@ class AuthenticationService {
     }
     private func saveLoginData(_ loginDto: UserCredentialsDto) -> Bool {
         guard let token = loginDto.token,
-              let userId = loginDto.userId,
-              let userName = loginDto.userName else {
+              let userId = loginDto.user.id,
+              let userName = loginDto.user.username else {
                   return false
               }
-        self.saveToken(token, expiration: Date.init(timeIntervalSince1970: loginDto.expiration))
+        self.saveToken(token, expiration: Date.init(timeIntervalSince1970: loginDto.expiration ?? 0.0))
         self.saveUser(id: userId,
                       userName: userName)
         return true
     }
-    private func saveUser(id: Int, userName: String) {
+    private func saveUser(id: UUID, userName: String) {
         UserService.shared.currentUser = UserService.User(id: id,
                                                           username: userName)
     }

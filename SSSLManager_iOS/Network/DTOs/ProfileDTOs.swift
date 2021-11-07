@@ -20,9 +20,9 @@ enum Roles: String, Codable {
     case admin
 }
 
-struct ProfileDownloadDto: Decodable {
-    let username: String
-    let id: UUID
+struct ProfileDownloadDto: Codable {
+    let username: String?
+    let id: UUID?
     let fullname: String
     let nickname: String?
     let schgroup: SCHgroup?

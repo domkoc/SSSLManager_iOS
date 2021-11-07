@@ -25,9 +25,11 @@ extension AuthenticationAPI: AuthenticationAPIInput {
                                         case .success(let loginData):
                                             completion(.success(loginData))
                                         case .customError(let error):
-                                            completion(.error(error.errorsString))
+                                            let message = self.errorManager.errorMessage(for: error)
+                                            completion(.error(message))
                                         case .other:
-                                            completion(.error("other error"))
+                                            let message = self.errorManager.errorMessage()
+                                            completion(.error(message))
                                         }
                                       })
     }

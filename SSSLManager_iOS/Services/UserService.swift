@@ -9,7 +9,7 @@ import Foundation
 
 class UserService {
     struct User: Codable {
-        let id: Int
+        let id: UUID
         let username: String
     }
     static let shared = UserService()

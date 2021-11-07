@@ -16,4 +16,5 @@ class APIBase {
         case success
         case error(String)
     }
+    let errorManager: ErrorManagerInput = ErrorManager.shared
 }
