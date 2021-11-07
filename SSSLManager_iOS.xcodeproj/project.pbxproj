@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		800CB69259B81D277FDC14BC /* Pods_SSSLManager_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E877306A7A854BF2360FF0 /* Pods_SSSLManager_iOS.framework */; };
 		D52C3B222737DC740060FDFC /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C3B212737DC740060FDFC /* ErrorManager.swift */; };
+		D52C3B2527381B8D0060FDFC /* MainScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C3B2427381B8D0060FDFC /* MainScreenCoordinator.swift */; };
+		D52C3B27273820730060FDFC /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D52C3B26273820730060FDFC /* MainScreen.storyboard */; };
+		D52C3B292738208F0060FDFC /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C3B282738208F0060FDFC /* MainScreenViewController.swift */; };
+		D52C3B2B273820F10060FDFC /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C3B2A273820F10060FDFC /* MainScreenInteractor.swift */; };
+		D52C3B2D273820FC0060FDFC /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C3B2C273820FC0060FDFC /* MainScreenPresenter.swift */; };
+		D52C3B2F2738210A0060FDFC /* MainScreenPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C3B2E2738210A0060FDFC /* MainScreenPresentationModel.swift */; };
+		D52C3B312738226F0060FDFC /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C3B302738226F0060FDFC /* Profile.swift */; };
+		D52C3B33273825810060FDFC /* MainScreenViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C3B32273825810060FDFC /* MainScreenViewControllerFactory.swift */; };
 		D56EE85D273688550060EA35 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56EE85C273688550060EA35 /* LoginPresenter.swift */; };
 		D56EE85F2736886C0060EA35 /* LoginPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56EE85E2736886C0060EA35 /* LoginPresentationModel.swift */; };
 		D56EE8612736888D0060EA35 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56EE8602736888D0060EA35 /* BaseView.swift */; };
@@ -53,6 +61,14 @@
 		1A793CA0A8F012D6436A570A /* Pods-SSSLManager_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSLManager_iOS.debug.xcconfig"; path = "Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B2B6FAD2AF7F0863E524F028 /* Pods-SSSLManager_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSLManager_iOS.release.xcconfig"; path = "Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		D52C3B212737DC740060FDFC /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
+		D52C3B2427381B8D0060FDFC /* MainScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinator.swift; sourceTree = "<group>"; };
+		D52C3B26273820730060FDFC /* MainScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
+		D52C3B282738208F0060FDFC /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		D52C3B2A273820F10060FDFC /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
+		D52C3B2C273820FC0060FDFC /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
+		D52C3B2E2738210A0060FDFC /* MainScreenPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresentationModel.swift; sourceTree = "<group>"; };
+		D52C3B302738226F0060FDFC /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		D52C3B32273825810060FDFC /* MainScreenViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewControllerFactory.swift; sourceTree = "<group>"; };
 		D56EE85C273688550060EA35 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		D56EE85E2736886C0060EA35 /* LoginPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresentationModel.swift; sourceTree = "<group>"; };
 		D56EE8602736888D0060EA35 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -112,6 +128,20 @@
 				10E877306A7A854BF2360FF0 /* Pods_SSSLManager_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D52C3B2327381B730060FDFC /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D52C3B282738208F0060FDFC /* MainScreenViewController.swift */,
+				D52C3B2C273820FC0060FDFC /* MainScreenPresenter.swift */,
+				D52C3B2E2738210A0060FDFC /* MainScreenPresentationModel.swift */,
+				D52C3B2A273820F10060FDFC /* MainScreenInteractor.swift */,
+				D52C3B2427381B8D0060FDFC /* MainScreenCoordinator.swift */,
+				D52C3B32273825810060FDFC /* MainScreenViewControllerFactory.swift */,
+				D52C3B26273820730060FDFC /* MainScreen.storyboard */,
+			);
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 		D59685EE2735D3D3007A3AB2 /* Login */ = {
@@ -227,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				D5D43FDC27355C8A00EDE6B0 /* Login.swift */,
+				D52C3B302738226F0060FDFC /* Profile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				D5BEF965273565F00054C1B9 /* Authentication */,
+				D52C3B2327381B730060FDFC /* MainScreen */,
 				D5D43FC727353F0800EDE6B0 /* AppCoordinator.swift */,
 			);
 			path = Scenes;
@@ -365,6 +397,7 @@
 				D5D43FB427352EF200EDE6B0 /* Images.xcassets in Resources */,
 				D5D43FAF27352EF100EDE6B0 /* Main.storyboard in Resources */,
 				D59685EB2735D323007A3AB2 /* Authentication.storyboard in Resources */,
+				D52C3B27273820730060FDFC /* MainScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D52C3B2F2738210A0060FDFC /* MainScreenPresentationModel.swift in Sources */,
 				D5BEF964273563C80054C1B9 /* UserService.swift in Sources */,
 				D5D43FAC27352EF100EDE6B0 /* ViewController.swift in Sources */,
 				D5D43FD427354A5200EDE6B0 /* SSSLAuthCredentials.swift in Sources */,
@@ -445,12 +479,17 @@
 				D5BEF967273566040054C1B9 /* AuthenticationInteractor.swift in Sources */,
 				D5D43FA827352EF100EDE6B0 /* AppDelegate.swift in Sources */,
 				D5BEF96E273569410054C1B9 /* ErrorDTOs.swift in Sources */,
+				D52C3B33273825810060FDFC /* MainScreenViewControllerFactory.swift in Sources */,
 				D5BEF973273569C80054C1B9 /* CoadableExtension.swift in Sources */,
 				D5D43FDB27355B6C00EDE6B0 /* APIBase.swift in Sources */,
 				D5D43FC827353F0800EDE6B0 /* AppCoordinator.swift in Sources */,
+				D52C3B2D273820FC0060FDFC /* MainScreenPresenter.swift in Sources */,
+				D52C3B312738226F0060FDFC /* Profile.swift in Sources */,
 				D5BEF96C273567B90054C1B9 /* NetworkManager.swift in Sources */,
 				D52C3B222737DC740060FDFC /* ErrorManager.swift in Sources */,
 				D5D43FCF2735463700EDE6B0 /* Constants.swift in Sources */,
+				D52C3B2B273820F10060FDFC /* MainScreenInteractor.swift in Sources */,
+				D52C3B2527381B8D0060FDFC /* MainScreenCoordinator.swift in Sources */,
 				D59685F62735D59F007A3AB2 /* Storyboards.swift in Sources */,
 				D59685ED2735D334007A3AB2 /* AuthenticationViewControllerFactory.swift in Sources */,
 				D59685E92735CCFD007A3AB2 /* ProfileDTOs.swift in Sources */,
@@ -463,6 +502,7 @@
 				D56EE85D273688550060EA35 /* LoginPresenter.swift in Sources */,
 				D5BEF976273573590054C1B9 /* ArrayExtension.swift in Sources */,
 				D59685E72735CCB9007A3AB2 /* ProfileAPI.swift in Sources */,
+				D52C3B292738208F0060FDFC /* MainScreenViewController.swift in Sources */,
 				D5D43FCD2735458100EDE6B0 /* TokenManager.swift in Sources */,
 				D59685F02735D3DF007A3AB2 /* LoginViewController.swift in Sources */,
 				D5D43FD627354D1D00EDE6B0 /* AuthenticationService.swift in Sources */,

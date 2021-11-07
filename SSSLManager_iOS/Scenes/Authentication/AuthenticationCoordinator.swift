@@ -51,6 +51,8 @@ extension AuthenticationCoordinator: AuthenticationCoordinatorInput {
         rootViewController?.setNavigationBarHidden(true, animated: false)
         rootViewController?.pushViewController(loginViewController, animated: true)
     }
-    func navigateToMainScreen() { print("logged in") }
+    func navigateToMainScreen() {
+        appCoordinator?.navigateToMainScreen()
+    }
     func navigateBackToLogin() { }
 }

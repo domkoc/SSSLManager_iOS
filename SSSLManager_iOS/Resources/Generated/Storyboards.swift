@@ -17,6 +17,11 @@ internal enum StoryboardScene {
 
     internal static let loginViewController = SceneType<SSSLManager_iOS.LoginViewController>(storyboard: Authentication.self, identifier: "LoginViewController")
   }
+  internal enum MainScreen: StoryboardType {
+    internal static let storyboardName = "MainScreen"
+
+    internal static let mainScreenViewController = SceneType<SSSLManager_iOS.MainScreenViewController>(storyboard: MainScreen.self, identifier: "MainScreenViewController")
+  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
 

@@ -27,4 +27,10 @@ class AppCoordinator {
     func navigateBackToLogin() {
         authenticationCoordinator?.navigateBackToLogin()
     }
+    func navigateToMainScreen() {
+        
+        let mainScreenCoordinator = MainScreenCoordinator(rootViewController: rootViewController,
+                                                           appCoordinator: self)
+        mainScreenCoordinator.start()
+    }
 }
