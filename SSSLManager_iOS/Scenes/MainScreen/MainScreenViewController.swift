@@ -16,6 +16,12 @@ protocol MainScreenView: BaseView {
 class MainScreenViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     var presenter: MainScreenPresenterInput?
+    var presentationModel: MainScreenPresentationModel? {
+        didSet {
+            guard let presentationModel = self.presentationModel else { return }
+            label.text = "Welcome to SSSLManager \n \(presentationModel.profile.fullname)!"
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeViews()
@@ -25,12 +31,22 @@ class MainScreenViewController: UIViewController {
         presenter?.loadProfileData()
     }
     private func customizeViews() {
-        
     }
+    @IBAction func EventsButtonTapped(_ sender: UIButton) {
+        presenter?.navigateToEvents()
+    }
+    @IBAction func profileButtonTapped(_ sender: UIButton) {
+        guard let profile = presentationModel?.profile else { return }
+        presenter?.navigateToProfile(with: profile)
+    }
+    @IBAction func logoutButtonTapped(_ sender: UIButton) {
+        presenter?.logout()
+    }
+    
 }
 
 extension MainScreenViewController: MainScreenView {
     func loadProfileData(_ presentationModel: MainScreenPresentationModel) {
-        label.text = "Hello \(presentationModel.profile.fullname)!"
+        self.presentationModel = presentationModel
     }
 }

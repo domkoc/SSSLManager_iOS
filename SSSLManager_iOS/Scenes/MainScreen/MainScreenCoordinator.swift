@@ -10,6 +10,7 @@ import UIKit
 
 protocol MainScreenCoordinatorInput {
     func navigateBackToRoot()
+    func navigateBackToLogin()
 }
 
 class MainScreenCoordinator {
@@ -28,13 +29,13 @@ class MainScreenCoordinator {
     }
     func navigateMainScreen() {
         let mainScreenViewController = MainScreenViewControllerFactory.makeMainScreenViewController()
-        let interactor = MainScreenInteractor(profileApi: self.profileApi)
+        let interactor = MainScreenInteractor(profileApi: self.profileApi,
+                                              authenticationService: .shared)
         let presenter = MainScreenPresenter(coordinator: self,
                                            interactor: interactor,
                                            view: mainScreenViewController)
         mainScreenViewController.presenter = presenter
         rootViewController.setNavigationBarHidden(false, animated: false)
-//        rootViewController.pushViewController(mainScreenViewController, animated: true)
         rootViewController.setViewControllers([mainScreenViewController], animated: false)
     }
 }
@@ -42,5 +43,8 @@ class MainScreenCoordinator {
 extension MainScreenCoordinator: MainScreenCoordinatorInput {
     func navigateBackToRoot() {
         rootViewController.popToRootViewController(animated: false)
+    }
+    func navigateBackToLogin() {
+        appCoordinator.navigateBackToLogin()
     }
 }

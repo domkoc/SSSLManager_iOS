@@ -54,5 +54,14 @@ extension AuthenticationCoordinator: AuthenticationCoordinatorInput {
     func navigateToMainScreen() {
         appCoordinator?.navigateToMainScreen()
     }
-    func navigateBackToLogin() { }
+    func navigateBackToLogin() {
+        let loginViewController = AuthenticationViewControllerFactory.makeLoginViewController()
+        let interactor = AuthenticationInteractor(authenticationApi: authenticationApi,
+                                                  profileApi: profileApi,
+                                                  authenticationService: authenticationService)
+        let presenter = LoginPresenter(coordinator: self, interactor: interactor, view: loginViewController)
+        loginViewController.presenter = presenter
+        rootViewController?.setNavigationBarHidden(true, animated: false)
+        rootViewController?.setViewControllers([loginViewController], animated: false)
+    }
 }

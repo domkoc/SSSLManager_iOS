@@ -11,6 +11,9 @@ protocol MainScreenPresenterInput: AnyObject {
     var view: MainScreenView? { get set }
     var interactor: MainScreenInteractorInput { get set }
     func loadProfileData()
+    func navigateToEvents()
+    func navigateToProfile(with profile: Profile)
+    func logout()
 }
 
 class MainScreenPresenter {
@@ -35,6 +38,24 @@ extension MainScreenPresenter: MainScreenPresenterInput {
             case .success(let profile):
                 let tempPresentationModel = MainScreenPresentationModel(profile: profile)
                 self.view?.loadProfileData(tempPresentationModel)
+            case .failure(.error(let message)):
+                self.view?.showErrorAlert(message: message, handler: nil)
+            }
+            self.view?.stopLoading()
+        }
+    }
+    func navigateToEvents() {
+        
+    }
+    func navigateToProfile(with profile: Profile) {
+        
+    }
+    func logout() {
+        interactor.logout { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success:
+                self.coordinator.navigateBackToLogin()
             case .failure(.error(let message)):
                 self.view?.showErrorAlert(message: message, handler: nil)
             }

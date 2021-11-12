@@ -73,4 +73,9 @@ class AuthenticationService {
         credential.setExpiration(expiration)
         NetworkConfigurator.shared.interceptor.credential = credential
     }
+    func logout(completion: @escaping (Result<AuthenticationServiceSuccess.Logout,
+                                       AuthenticationServiceError>) -> Void) {
+        self.clearUserData()
+        completion(.success(.loggedOut))
+    }
 }
