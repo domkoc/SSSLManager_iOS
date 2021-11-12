@@ -48,7 +48,7 @@ extension MainScreenPresenter: MainScreenPresenterInput {
         
     }
     func navigateToProfile(with profile: Profile) {
-        
+        coordinator.navigateToProfile(with: profile)
     }
     func logout() {
         interactor.logout { [weak self] result in

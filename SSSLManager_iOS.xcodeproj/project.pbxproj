@@ -28,6 +28,13 @@
 		D59685F62735D59F007A3AB2 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59685F32735D59F007A3AB2 /* Storyboards.swift */; };
 		D59685F72735D59F007A3AB2 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59685F42735D59F007A3AB2 /* Images.swift */; };
 		D59685F82735D59F007A3AB2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59685F52735D59F007A3AB2 /* Colors.swift */; };
+		D59DDB09273E723000351FAF /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D59DDB08273E723000351FAF /* Profile.storyboard */; };
+		D59DDB0B273E724500351FAF /* ProfileViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59DDB0A273E724500351FAF /* ProfileViewControllerFactory.swift */; };
+		D59DDB0D273E725900351FAF /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59DDB0C273E725900351FAF /* ProfileCoordinator.swift */; };
+		D59DDB0F273E726A00351FAF /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59DDB0E273E726A00351FAF /* ProfileInteractor.swift */; };
+		D59DDB12273E729500351FAF /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59DDB11273E729500351FAF /* UserProfileViewController.swift */; };
+		D59DDB14273E72A600351FAF /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59DDB13273E72A600351FAF /* UserProfilePresenter.swift */; };
+		D59DDB16273E72B400351FAF /* UserProfilePresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59DDB15273E72B400351FAF /* UserProfilePresentationModel.swift */; };
 		D5BEF964273563C80054C1B9 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BEF963273563C80054C1B9 /* UserService.swift */; };
 		D5BEF967273566040054C1B9 /* AuthenticationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BEF966273566040054C1B9 /* AuthenticationInteractor.swift */; };
 		D5BEF96A2735666F0054C1B9 /* AuthenticationDTOs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BEF9692735666F0054C1B9 /* AuthenticationDTOs.swift */; };
@@ -80,6 +87,13 @@
 		D59685F32735D59F007A3AB2 /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		D59685F42735D59F007A3AB2 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		D59685F52735D59F007A3AB2 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		D59DDB08273E723000351FAF /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		D59DDB0A273E724500351FAF /* ProfileViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerFactory.swift; sourceTree = "<group>"; };
+		D59DDB0C273E725900351FAF /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		D59DDB0E273E726A00351FAF /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		D59DDB11273E729500351FAF /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		D59DDB13273E72A600351FAF /* UserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
+		D59DDB15273E72B400351FAF /* UserProfilePresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresentationModel.swift; sourceTree = "<group>"; };
 		D5BEF963273563C80054C1B9 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D5BEF966273566040054C1B9 /* AuthenticationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInteractor.swift; sourceTree = "<group>"; };
 		D5BEF9692735666F0054C1B9 /* AuthenticationDTOs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDTOs.swift; sourceTree = "<group>"; };
@@ -162,6 +176,28 @@
 				D59685F32735D59F007A3AB2 /* Storyboards.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		D59DDB07273E720C00351FAF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D59DDB10273E727500351FAF /* UserProfile */,
+				D59DDB0E273E726A00351FAF /* ProfileInteractor.swift */,
+				D59DDB0C273E725900351FAF /* ProfileCoordinator.swift */,
+				D59DDB0A273E724500351FAF /* ProfileViewControllerFactory.swift */,
+				D59DDB08273E723000351FAF /* Profile.storyboard */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		D59DDB10273E727500351FAF /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				D59DDB11273E729500351FAF /* UserProfileViewController.swift */,
+				D59DDB13273E72A600351FAF /* UserProfilePresenter.swift */,
+				D59DDB15273E72B400351FAF /* UserProfilePresentationModel.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		D5BEF965273565F00054C1B9 /* Authentication */ = {
@@ -267,6 +303,7 @@
 			children = (
 				D5BEF965273565F00054C1B9 /* Authentication */,
 				D52C3B2327381B730060FDFC /* MainScreen */,
+				D59DDB07273E720C00351FAF /* Profile */,
 				D5D43FC727353F0800EDE6B0 /* AppCoordinator.swift */,
 			);
 			path = Scenes;
@@ -397,6 +434,7 @@
 				D5D43FB427352EF200EDE6B0 /* Images.xcassets in Resources */,
 				D5D43FAF27352EF100EDE6B0 /* Main.storyboard in Resources */,
 				D59685EB2735D323007A3AB2 /* Authentication.storyboard in Resources */,
+				D59DDB09273E723000351FAF /* Profile.storyboard in Resources */,
 				D52C3B27273820730060FDFC /* MainScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +514,8 @@
 				D5BEF9712735698A0054C1B9 /* URLRequestExtension.swift in Sources */,
 				D5D43FCA273544E100EDE6B0 /* NetworkConfigurator.swift in Sources */,
 				D5D43FD2273549E800EDE6B0 /* SSSLAuthenticator.swift in Sources */,
+				D59DDB12273E729500351FAF /* UserProfileViewController.swift in Sources */,
+				D59DDB0B273E724500351FAF /* ProfileViewControllerFactory.swift in Sources */,
 				D5BEF967273566040054C1B9 /* AuthenticationInteractor.swift in Sources */,
 				D5D43FA827352EF100EDE6B0 /* AppDelegate.swift in Sources */,
 				D5BEF96E273569410054C1B9 /* ErrorDTOs.swift in Sources */,
@@ -488,6 +528,7 @@
 				D5BEF96C273567B90054C1B9 /* NetworkManager.swift in Sources */,
 				D52C3B222737DC740060FDFC /* ErrorManager.swift in Sources */,
 				D5D43FCF2735463700EDE6B0 /* Constants.swift in Sources */,
+				D59DDB0D273E725900351FAF /* ProfileCoordinator.swift in Sources */,
 				D52C3B2B273820F10060FDFC /* MainScreenInteractor.swift in Sources */,
 				D52C3B2527381B8D0060FDFC /* MainScreenCoordinator.swift in Sources */,
 				D59685F62735D59F007A3AB2 /* Storyboards.swift in Sources */,
@@ -495,8 +536,11 @@
 				D59685E92735CCFD007A3AB2 /* ProfileDTOs.swift in Sources */,
 				D5D43FD927355B2000EDE6B0 /* AuthenticationAPI.swift in Sources */,
 				D5D43FAA27352EF100EDE6B0 /* SceneDelegate.swift in Sources */,
+				D59DDB14273E72A600351FAF /* UserProfilePresenter.swift in Sources */,
 				D59685F82735D59F007A3AB2 /* Colors.swift in Sources */,
 				D5BEF96A2735666F0054C1B9 /* AuthenticationDTOs.swift in Sources */,
+				D59DDB16273E72B400351FAF /* UserProfilePresentationModel.swift in Sources */,
+				D59DDB0F273E726A00351FAF /* ProfileInteractor.swift in Sources */,
 				D59685F72735D59F007A3AB2 /* Images.swift in Sources */,
 				D5BEF9782735745A0054C1B9 /* AuthenticationCoordinator.swift in Sources */,
 				D56EE85D273688550060EA35 /* LoginPresenter.swift in Sources */,

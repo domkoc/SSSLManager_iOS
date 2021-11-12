@@ -22,6 +22,11 @@ internal enum StoryboardScene {
 
     internal static let mainScreenViewController = SceneType<SSSLManager_iOS.MainScreenViewController>(storyboard: MainScreen.self, identifier: "MainScreenViewController")
   }
+  internal enum Profile: StoryboardType {
+    internal static let storyboardName = "Profile"
+
+    internal static let userProfileViewController = SceneType<SSSLManager_iOS.UserProfileViewController>(storyboard: Profile.self, identifier: "UserProfileViewController")
+  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
 

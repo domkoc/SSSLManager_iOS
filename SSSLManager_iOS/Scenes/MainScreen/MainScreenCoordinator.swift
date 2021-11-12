@@ -11,6 +11,7 @@ import UIKit
 protocol MainScreenCoordinatorInput {
     func navigateBackToRoot()
     func navigateBackToLogin()
+    func navigateToProfile(with profile: Profile)
 }
 
 class MainScreenCoordinator {
@@ -46,5 +47,10 @@ extension MainScreenCoordinator: MainScreenCoordinatorInput {
     }
     func navigateBackToLogin() {
         appCoordinator.navigateBackToLogin()
+    }
+    func navigateToProfile(with profile: Profile) {
+        ProfileCoordinator(rootViewController: self.rootViewController,
+                           appCoordinator: self.appCoordinator)
+            .start(with: profile)
     }
 }
