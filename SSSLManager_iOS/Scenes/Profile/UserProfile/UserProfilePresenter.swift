@@ -10,18 +10,22 @@ import Foundation
 protocol UserProfilePresenterInput: AnyObject {
     var view: UserProfileView? { get set }
     var interactor: ProfileInteractorInput { get set }
+    var presentationModel: UserProfilePresentationModel { get set }
 }
 
 class UserProfilePresenter {
     weak var view: UserProfileView?
     var interactor: ProfileInteractorInput
     private let coordinator: ProfileCoordinatorInput
+    var presentationModel: UserProfilePresentationModel
     internal init(coordinator: ProfileCoordinatorInput,
                   interactor: ProfileInteractorInput,
-                  view: UserProfileView) {
+                  view: UserProfileView,
+                  presentationModel: UserProfilePresentationModel) {
         self.view = view
         self.interactor = interactor
         self.coordinator = coordinator
+        self.presentationModel = presentationModel
     }
 }
 

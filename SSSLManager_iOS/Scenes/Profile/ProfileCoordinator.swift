@@ -25,17 +25,14 @@ class ProfileCoordinator {
         self.interactor = ProfileInteractor(profileApi: profileApi)
     }
     func start(with profile: Profile) {
-        let flightsViewController = setupUserProfile()
-        rootViewController?.setNavigationBarHidden(false, animated: false)
-        rootViewController?.pushViewController(flightsViewController, animated: true)
-    }
-    private func setupUserProfile() -> UserProfileViewController {
         let userProfileViewController = ProfileViewControllerFactory.makeUserProfileViewController()
         let userProfilePresenter = UserProfilePresenter(coordinator: self,
                                                         interactor: self.interactor,
-                                                        view: userProfileViewController)
+                                                        view: userProfileViewController,
+                                                        presentationModel: UserProfilePresentationModel(profile: profile))
         userProfileViewController.presenter = userProfilePresenter
-        return userProfileViewController
+        rootViewController?.setNavigationBarHidden(false, animated: false)
+        rootViewController?.pushViewController(userProfileViewController, animated: true)
     }
 }
 

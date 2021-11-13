@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		800CB69259B81D277FDC14BC /* Pods_SSSLManager_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E877306A7A854BF2360FF0 /* Pods_SSSLManager_iOS.framework */; };
+		D52912D8273FB3B6004D0731 /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52912D6273FB3B6004D0731 /* UserProfileTableViewCell.swift */; };
+		D52912D9273FB3B6004D0731 /* UserProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D52912D7273FB3B6004D0731 /* UserProfileTableViewCell.xib */; };
+		D52912DD273FC0DF004D0731 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52912DC273FC0DF004D0731 /* NibLoadableView.swift */; };
+		D52912DF273FC518004D0731 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52912DE273FC518004D0731 /* UITableViewExtension.swift */; };
+		D52912E1273FC53B004D0731 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52912E0273FC53B004D0731 /* ReusableView.swift */; };
 		D52C3B222737DC740060FDFC /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C3B212737DC740060FDFC /* ErrorManager.swift */; };
 		D52C3B2527381B8D0060FDFC /* MainScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C3B2427381B8D0060FDFC /* MainScreenCoordinator.swift */; };
 		D52C3B27273820730060FDFC /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D52C3B26273820730060FDFC /* MainScreen.storyboard */; };
@@ -67,6 +72,11 @@
 		10E877306A7A854BF2360FF0 /* Pods_SSSLManager_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSSLManager_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A793CA0A8F012D6436A570A /* Pods-SSSLManager_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSLManager_iOS.debug.xcconfig"; path = "Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B2B6FAD2AF7F0863E524F028 /* Pods-SSSLManager_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSLManager_iOS.release.xcconfig"; path = "Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		D52912D6273FB3B6004D0731 /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewCell.swift; sourceTree = "<group>"; };
+		D52912D7273FB3B6004D0731 /* UserProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileTableViewCell.xib; sourceTree = "<group>"; };
+		D52912DC273FC0DF004D0731 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		D52912DE273FC518004D0731 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		D52912E0273FC53B004D0731 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		D52C3B212737DC740060FDFC /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		D52C3B2427381B8D0060FDFC /* MainScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinator.swift; sourceTree = "<group>"; };
 		D52C3B26273820730060FDFC /* MainScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
@@ -142,6 +152,31 @@
 				10E877306A7A854BF2360FF0 /* Pods_SSSLManager_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D52912D3273FB385004D0731 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				D52912D4273FB38E004D0731 /* Profile */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		D52912D4273FB38E004D0731 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D52912D5273FB397004D0731 /* UserProfile */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		D52912D5273FB397004D0731 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				D52912D6273FB3B6004D0731 /* UserProfileTableViewCell.swift */,
+				D52912D7273FB3B6004D0731 /* UserProfileTableViewCell.xib */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		D52C3B2327381B730060FDFC /* MainScreen */ = {
@@ -234,8 +269,11 @@
 		D5BEF9742735732C0054C1B9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D52912DE273FC518004D0731 /* UITableViewExtension.swift */,
 				D5BEF975273573590054C1B9 /* ArrayExtension.swift */,
 				D56EE8602736888D0060EA35 /* BaseView.swift */,
+				D52912DC273FC0DF004D0731 /* NibLoadableView.swift */,
+				D52912E0273FC53B004D0731 /* ReusableView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -325,6 +363,7 @@
 		D5D43FC627353EDF00EDE6B0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D52912D3273FB385004D0731 /* Scenes */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -429,6 +468,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D52912D9273FB3B6004D0731 /* UserProfileTableViewCell.xib in Resources */,
 				D5D43FB727352EF200EDE6B0 /* LaunchScreen.storyboard in Resources */,
 				D5D43FC02735357000EDE6B0 /* Colors.xcassets in Resources */,
 				D5D43FB427352EF200EDE6B0 /* Images.xcassets in Resources */,
@@ -516,8 +556,10 @@
 				D5D43FD2273549E800EDE6B0 /* SSSLAuthenticator.swift in Sources */,
 				D59DDB12273E729500351FAF /* UserProfileViewController.swift in Sources */,
 				D59DDB0B273E724500351FAF /* ProfileViewControllerFactory.swift in Sources */,
+				D52912E1273FC53B004D0731 /* ReusableView.swift in Sources */,
 				D5BEF967273566040054C1B9 /* AuthenticationInteractor.swift in Sources */,
 				D5D43FA827352EF100EDE6B0 /* AppDelegate.swift in Sources */,
+				D52912DF273FC518004D0731 /* UITableViewExtension.swift in Sources */,
 				D5BEF96E273569410054C1B9 /* ErrorDTOs.swift in Sources */,
 				D52C3B33273825810060FDFC /* MainScreenViewControllerFactory.swift in Sources */,
 				D5BEF973273569C80054C1B9 /* CoadableExtension.swift in Sources */,
@@ -534,6 +576,7 @@
 				D59685F62735D59F007A3AB2 /* Storyboards.swift in Sources */,
 				D59685ED2735D334007A3AB2 /* AuthenticationViewControllerFactory.swift in Sources */,
 				D59685E92735CCFD007A3AB2 /* ProfileDTOs.swift in Sources */,
+				D52912DD273FC0DF004D0731 /* NibLoadableView.swift in Sources */,
 				D5D43FD927355B2000EDE6B0 /* AuthenticationAPI.swift in Sources */,
 				D5D43FAA27352EF100EDE6B0 /* SceneDelegate.swift in Sources */,
 				D59DDB14273E72A600351FAF /* UserProfilePresenter.swift in Sources */,
@@ -546,6 +589,7 @@
 				D56EE85D273688550060EA35 /* LoginPresenter.swift in Sources */,
 				D5BEF976273573590054C1B9 /* ArrayExtension.swift in Sources */,
 				D59685E72735CCB9007A3AB2 /* ProfileAPI.swift in Sources */,
+				D52912D8273FB3B6004D0731 /* UserProfileTableViewCell.swift in Sources */,
 				D52C3B292738208F0060FDFC /* MainScreenViewController.swift in Sources */,
 				D5D43FCD2735458100EDE6B0 /* TokenManager.swift in Sources */,
 				D59685F02735D3DF007A3AB2 /* LoginViewController.swift in Sources */,

@@ -7,19 +7,18 @@
 
 import Foundation
 
-
 struct Profile: Codable {
-    let username: String?
-    let id: UUID?
-    let fullname: String
+    let username: String
+    let id: UUID
+    let fullname: String?
     let nickname: String?
     let schgroup: SCHgroup?
     let roles: [Roles]
     let createdAt: Date?
     let updatedAt: Date?
-    init(username: String?,
-         id: UUID?,
-         fullname: String,
+    init(username: String,
+         id: UUID,
+         fullname: String?,
          nickname: String?,
          schgroup: SCHgroup?,
          roles: [Roles],
@@ -35,14 +34,69 @@ struct Profile: Codable {
         self.updatedAt = updatedAt
     }
     init(dto: ProfileDownloadDto) {
-        self.username = dto.username
-        self.id = dto.id
+        self.username = dto.username!
+        self.id = dto.id!
         self.fullname = dto.fullname
         self.nickname = dto.nickname
         self.schgroup = dto.schgroup
         self.roles = dto.roles
-        self.createdAt = dto.createdAt
-        self.updatedAt = dto.updatedAt
+        self.createdAt = dto.created_at != nil ? Date(timeIntervalSince1970: dto.created_at!) : nil
+        self.updatedAt = dto.updated_at != nil ? Date(timeIntervalSince1970: dto.updated_at!) : nil
     }
-    
+    func getRepresentableValues() -> [UserProfileTableViewCellConfig] {
+        var values: [UserProfileTableViewCellConfig] = []
+        values.append(UserProfileTableViewCellConfig(title: "Username",
+                                                     description: username))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        if let fullname = fullname {
+            values.append(UserProfileTableViewCellConfig(title: "Full Name",
+                                                         description: fullname))
+        }
+        if let nickname = nickname {
+            values.append(UserProfileTableViewCellConfig(title: "Nickname",
+                                                         description: nickname))
+        }
+        if let schgroup = schgroup {
+            values.append(UserProfileTableViewCellConfig(title: "SCH Group",
+                                                         description: schgroup.stringValue))
+        }
+        if roles.contains(where: { $0 == .admin }) {
+            values.append(UserProfileTableViewCellConfig(title: "Admin role",
+                                                         description: "Yes"))
+        }
+        if let createdAt = createdAt {
+            let formatted = dateFormatter.string(from: createdAt)
+            values.append(UserProfileTableViewCellConfig(title: "Registration date",
+                                                         description: formatted))
+        }
+        if let updatedAt = updatedAt {
+            values.append(UserProfileTableViewCellConfig(title: "Last update date",
+                                                         description: dateFormatter.string(from: updatedAt)))
+        }
+        return values
+    }
+    func fieldsCount() -> Int {
+        var count: Int = 2
+        if let _ = fullname {
+            count += 1
+        }
+        if let _ = nickname {
+            count += 1
+        }
+        if let _ = schgroup {
+            count += 1
+        }
+        if roles.count < 1 {
+            count += 1
+        }
+        if let _ = createdAt {
+            count += 1
+        }
+        if let _ = updatedAt {
+            count += 1
+        }
+        return count
+    }
 }

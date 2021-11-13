@@ -13,6 +13,20 @@ enum SCHgroup: String, Codable {
     case ttny
     case drwu
     case fekete
+    var stringValue: String {
+        switch self {
+        case .sir:
+            return "SIR"
+        case .nyuszi:
+            return "Nyuszi"
+        case .ttny:
+            return "TTNY"
+        case .drwu:
+            return "Dr. Wu"
+        case .fekete:
+            return "Fekete"
+        }
+    }
 }
 
 enum Roles: String, Codable {
@@ -27,6 +41,6 @@ struct ProfileDownloadDto: Codable {
     let nickname: String?
     let schgroup: SCHgroup?
     let roles: [Roles]
-    let createdAt: Date?
-    let updatedAt: Date?
+    let created_at: Double?
+    let updated_at: Double?
 }

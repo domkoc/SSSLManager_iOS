@@ -18,8 +18,9 @@ class MainScreenViewController: UIViewController {
     var presenter: MainScreenPresenterInput?
     var presentationModel: MainScreenPresentationModel? {
         didSet {
-            guard let presentationModel = self.presentationModel else { return }
-            label.text = "Welcome to SSSLManager \n \(presentationModel.profile.fullname)!"
+            guard let presentationModel = self.presentationModel,
+            let fullname = presentationModel.profile.fullname else { return }
+            label.text = "Welcome to SSSLManager \n \(fullname)!"
         }
     }
     override func viewDidLoad() {
