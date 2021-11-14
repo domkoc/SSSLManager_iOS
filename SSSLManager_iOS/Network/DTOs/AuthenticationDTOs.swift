@@ -12,7 +12,7 @@ struct LoginDTO: Codable {
     let password: String
 }
 
-struct UserCredentialsDto: Codable {
+struct UserCredentialsDto: Decodable {
     var token: String?
     var user: ProfileDownloadDto
     let expiration: Double?

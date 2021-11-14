@@ -22,6 +22,13 @@
 		D52C3B2F2738210A0060FDFC /* MainScreenPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C3B2E2738210A0060FDFC /* MainScreenPresentationModel.swift */; };
 		D52C3B312738226F0060FDFC /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C3B302738226F0060FDFC /* Profile.swift */; };
 		D52C3B33273825810060FDFC /* MainScreenViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52C3B32273825810060FDFC /* MainScreenViewControllerFactory.swift */; };
+		D52FC812274127AB0053DF6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52FC811274127AB0053DF6F /* RegisterViewController.swift */; };
+		D52FC814274127B40053DF6F /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52FC813274127B40053DF6F /* RegisterPresenter.swift */; };
+		D52FC816274127BE0053DF6F /* RegisterPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52FC815274127BE0053DF6F /* RegisterPresentationModel.swift */; };
+		D52FC81827413C480053DF6F /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52FC81727413C480053DF6F /* OptionalExtension.swift */; };
+		D52FC81B27415D250053DF6F /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52FC81A27415D250053DF6F /* EditProfileViewController.swift */; };
+		D52FC81D27415D2F0053DF6F /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52FC81C27415D2F0053DF6F /* EditProfilePresenter.swift */; };
+		D52FC81F27415D3B0053DF6F /* EditProfilePresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52FC81E27415D3B0053DF6F /* EditProfilePresentationModel.swift */; };
 		D56EE85D273688550060EA35 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56EE85C273688550060EA35 /* LoginPresenter.swift */; };
 		D56EE85F2736886C0060EA35 /* LoginPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56EE85E2736886C0060EA35 /* LoginPresentationModel.swift */; };
 		D56EE8612736888D0060EA35 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56EE8602736888D0060EA35 /* BaseView.swift */; };
@@ -86,6 +93,13 @@
 		D52C3B2E2738210A0060FDFC /* MainScreenPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresentationModel.swift; sourceTree = "<group>"; };
 		D52C3B302738226F0060FDFC /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D52C3B32273825810060FDFC /* MainScreenViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewControllerFactory.swift; sourceTree = "<group>"; };
+		D52FC811274127AB0053DF6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		D52FC813274127B40053DF6F /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
+		D52FC815274127BE0053DF6F /* RegisterPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresentationModel.swift; sourceTree = "<group>"; };
+		D52FC81727413C480053DF6F /* OptionalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalExtension.swift; sourceTree = "<group>"; };
+		D52FC81A27415D250053DF6F /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		D52FC81C27415D2F0053DF6F /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
+		D52FC81E27415D3B0053DF6F /* EditProfilePresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresentationModel.swift; sourceTree = "<group>"; };
 		D56EE85C273688550060EA35 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		D56EE85E2736886C0060EA35 /* LoginPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresentationModel.swift; sourceTree = "<group>"; };
 		D56EE8602736888D0060EA35 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -193,6 +207,26 @@
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
+		D52FC8102741279B0053DF6F /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				D52FC811274127AB0053DF6F /* RegisterViewController.swift */,
+				D52FC813274127B40053DF6F /* RegisterPresenter.swift */,
+				D52FC815274127BE0053DF6F /* RegisterPresentationModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		D52FC81927415D150053DF6F /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				D52FC81A27415D250053DF6F /* EditProfileViewController.swift */,
+				D52FC81C27415D2F0053DF6F /* EditProfilePresenter.swift */,
+				D52FC81E27415D3B0053DF6F /* EditProfilePresentationModel.swift */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
 		D59685EE2735D3D3007A3AB2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +250,7 @@
 		D59DDB07273E720C00351FAF /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				D52FC81927415D150053DF6F /* EditProfile */,
 				D59DDB10273E727500351FAF /* UserProfile */,
 				D59DDB0E273E726A00351FAF /* ProfileInteractor.swift */,
 				D59DDB0C273E725900351FAF /* ProfileCoordinator.swift */,
@@ -238,6 +273,7 @@
 		D5BEF965273565F00054C1B9 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				D52FC8102741279B0053DF6F /* Register */,
 				D59685EE2735D3D3007A3AB2 /* Login */,
 				D5BEF966273566040054C1B9 /* AuthenticationInteractor.swift */,
 				D5BEF9772735745A0054C1B9 /* AuthenticationCoordinator.swift */,
@@ -274,6 +310,7 @@
 				D56EE8602736888D0060EA35 /* BaseView.swift */,
 				D52912DC273FC0DF004D0731 /* NibLoadableView.swift */,
 				D52912E0273FC53B004D0731 /* ReusableView.swift */,
+				D52FC81727413C480053DF6F /* OptionalExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -552,7 +589,10 @@
 				D5D43FDD27355C8A00EDE6B0 /* Login.swift in Sources */,
 				D56EE85F2736886C0060EA35 /* LoginPresentationModel.swift in Sources */,
 				D5BEF9712735698A0054C1B9 /* URLRequestExtension.swift in Sources */,
+				D52FC814274127B40053DF6F /* RegisterPresenter.swift in Sources */,
 				D5D43FCA273544E100EDE6B0 /* NetworkConfigurator.swift in Sources */,
+				D52FC81827413C480053DF6F /* OptionalExtension.swift in Sources */,
+				D52FC816274127BE0053DF6F /* RegisterPresentationModel.swift in Sources */,
 				D5D43FD2273549E800EDE6B0 /* SSSLAuthenticator.swift in Sources */,
 				D59DDB12273E729500351FAF /* UserProfileViewController.swift in Sources */,
 				D59DDB0B273E724500351FAF /* ProfileViewControllerFactory.swift in Sources */,
@@ -575,6 +615,8 @@
 				D52C3B2527381B8D0060FDFC /* MainScreenCoordinator.swift in Sources */,
 				D59685F62735D59F007A3AB2 /* Storyboards.swift in Sources */,
 				D59685ED2735D334007A3AB2 /* AuthenticationViewControllerFactory.swift in Sources */,
+				D52FC81B27415D250053DF6F /* EditProfileViewController.swift in Sources */,
+				D52FC812274127AB0053DF6F /* RegisterViewController.swift in Sources */,
 				D59685E92735CCFD007A3AB2 /* ProfileDTOs.swift in Sources */,
 				D52912DD273FC0DF004D0731 /* NibLoadableView.swift in Sources */,
 				D5D43FD927355B2000EDE6B0 /* AuthenticationAPI.swift in Sources */,
@@ -591,7 +633,9 @@
 				D59685E72735CCB9007A3AB2 /* ProfileAPI.swift in Sources */,
 				D52912D8273FB3B6004D0731 /* UserProfileTableViewCell.swift in Sources */,
 				D52C3B292738208F0060FDFC /* MainScreenViewController.swift in Sources */,
+				D52FC81F27415D3B0053DF6F /* EditProfilePresentationModel.swift in Sources */,
 				D5D43FCD2735458100EDE6B0 /* TokenManager.swift in Sources */,
+				D52FC81D27415D2F0053DF6F /* EditProfilePresenter.swift in Sources */,
 				D59685F02735D3DF007A3AB2 /* LoginViewController.swift in Sources */,
 				D5D43FD627354D1D00EDE6B0 /* AuthenticationService.swift in Sources */,
 				D56EE8612736888D0060EA35 /* BaseView.swift in Sources */,

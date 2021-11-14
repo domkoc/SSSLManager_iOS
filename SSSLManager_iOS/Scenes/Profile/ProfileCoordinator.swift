@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 protocol ProfileCoordinatorInput {
-    
+    func navigateToEditProfile(with profile: Profile)
+    func navigateToMainScreen()
 }
 
 class ProfileCoordinator {
@@ -37,5 +38,17 @@ class ProfileCoordinator {
 }
 
 extension ProfileCoordinator: ProfileCoordinatorInput {
-    
+    func navigateToEditProfile(with profile: Profile) {
+        let editProfileViewController = ProfileViewControllerFactory.makeEditProfileViewController()
+        let presenter = EditProfilePresenter(coordinator: self,
+                                             interactor: self.interactor,
+                                             view: editProfileViewController,
+                                             presentationModel: EditProfilePresentationModel(profile: profile))
+        editProfileViewController.presenter = presenter
+        rootViewController?.setNavigationBarHidden(false, animated: true)
+        rootViewController?.pushViewController(editProfileViewController, animated: true)
+    }
+    func navigateToMainScreen() {
+        appCoordinator?.navigateToMainScreen()
+    }
 }

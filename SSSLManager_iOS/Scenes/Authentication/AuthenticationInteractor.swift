@@ -7,10 +7,23 @@
 
 import Foundation
 
+struct AuthenticationInteractorSuccess {
+    enum Register {
+        case registered
+    }
+}
+
+enum AuthenticationInteractorError: Error {
+    case error(String)
+}
+
 protocol AuthenticationInteractorInput: AnyObject {
     func login(credentials: Login,
                completion: @escaping (Result<AuthenticationServiceSuccess.Login,
                                       AuthenticationServiceError>) -> Void)
+    func register(credentials: ProfileUploadDto,
+                  completion: @escaping (Result<AuthenticationInteractorSuccess.Register,
+                                         AuthenticationInteractorError>) -> Void)
 }
 
 class AuthenticationInteractor {
@@ -27,12 +40,26 @@ class AuthenticationInteractor {
 }
 
 extension AuthenticationInteractor: AuthenticationInteractorInput {
-    func login(credentials: Login, completion: @escaping (Result<AuthenticationServiceSuccess.Login, AuthenticationServiceError>) -> Void) {
+    func login(credentials: Login,
+               completion: @escaping (Result<AuthenticationServiceSuccess.Login,
+                                      AuthenticationServiceError>) -> Void) {
         authenticationService.loginWithCredentials(credentials: credentials) { result in
             switch result {
             case .success(let loginResult):
                 completion(.success(loginResult))
             case .failure(.error(let message)):
+                completion(.failure(.error(message)))
+            }
+        }
+    }
+    func register(credentials: ProfileUploadDto,
+                  completion: @escaping (Result<AuthenticationInteractorSuccess.Register,
+                                         AuthenticationInteractorError>) -> Void) {
+        authenticationApi.register(with: credentials) { result in
+            switch result {
+            case .success:
+                completion(.success(.registered))
+            case .error(let message):
                 completion(.failure(.error(message)))
             }
         }

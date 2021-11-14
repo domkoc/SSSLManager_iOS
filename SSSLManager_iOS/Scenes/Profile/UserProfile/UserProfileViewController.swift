@@ -27,6 +27,9 @@ class UserProfileViewController: UIViewController {
         userDetailsTableView.dataSource = self
         userDetailsTableView.registerCell(UserProfileTableViewCell.self)
     }
+    @IBAction func editButtonTapped(_ sender: UIButton) {
+        presenter?.navigateToEditProfile()
+    }
 }
 
 extension UserProfileViewController: UserProfileView {

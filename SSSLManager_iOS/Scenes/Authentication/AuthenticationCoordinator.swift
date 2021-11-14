@@ -9,8 +9,7 @@ import Foundation
 import UIKit
 
 protocol AuthenticationCoordinatorInput {
-    func navigateToRegistration()
-    func navigateToLogin()
+    func navigateToRegister()
     func navigateToMainScreen()
     func navigateBackToLogin()
 }
@@ -38,11 +37,7 @@ class AuthenticationCoordinator {
             navigateToMainScreen()
         }
     }
-}
-
-extension AuthenticationCoordinator: AuthenticationCoordinatorInput {
-    func navigateToRegistration() { }
-    func navigateToLogin() {
+    private func navigateToLogin() {
         let loginViewController = AuthenticationViewControllerFactory.makeLoginViewController()
         let presenter = LoginPresenter(coordinator: self,
                                        interactor: interactor,
@@ -50,6 +45,16 @@ extension AuthenticationCoordinator: AuthenticationCoordinatorInput {
         loginViewController.presenter = presenter
         rootViewController?.setNavigationBarHidden(true, animated: false)
         rootViewController?.pushViewController(loginViewController, animated: true)
+    }
+}
+
+extension AuthenticationCoordinator: AuthenticationCoordinatorInput {
+    func navigateToRegister() {
+        let registerViewController = AuthenticationViewControllerFactory.makeRegisterViewController()
+        let presenter = RegisterPresenter(coordinator: self, interactor: self.interactor, view: registerViewController)
+        registerViewController.presenter = presenter
+        rootViewController?.setNavigationBarHidden(false, animated: true)
+        rootViewController?.pushViewController(registerViewController, animated: true)
     }
     func navigateToMainScreen() {
         appCoordinator?.navigateToMainScreen()

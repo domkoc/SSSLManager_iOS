@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Profile: Codable {
+struct Profile: Decodable {
     let username: String
     let id: UUID
     let fullname: String?
@@ -98,5 +98,21 @@ struct Profile: Codable {
             count += 1
         }
         return count
+    }
+}
+
+
+struct EditedProfileCredentials {
+    let id: UUID
+    let email: String
+    let fullname: String
+    let group: SCHgroup?
+    let nickname: String?
+    var dto: ProfileEditDto {
+        ProfileEditDto(id: id,
+                       username: email,
+                       fullname: fullname,
+                       nickname: nickname,
+                       schgroup: group)
     }
 }

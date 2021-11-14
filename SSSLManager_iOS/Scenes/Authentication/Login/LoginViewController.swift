@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
         
     }
     @IBAction func registerButtonTapped(_ sender: UIButton) {
+        presenter?.navigateToRegister()
     }
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         presenter?.login()

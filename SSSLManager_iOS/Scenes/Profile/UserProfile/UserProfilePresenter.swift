@@ -11,6 +11,7 @@ protocol UserProfilePresenterInput: AnyObject {
     var view: UserProfileView? { get set }
     var interactor: ProfileInteractorInput { get set }
     var presentationModel: UserProfilePresentationModel { get set }
+    func navigateToEditProfile()
 }
 
 class UserProfilePresenter {
@@ -30,5 +31,7 @@ class UserProfilePresenter {
 }
 
 extension UserProfilePresenter: UserProfilePresenterInput {
-    
+    func navigateToEditProfile() {
+        coordinator.navigateToEditProfile(with: presentationModel.profile)
+    }
 }

@@ -16,6 +16,8 @@ internal enum StoryboardScene {
     internal static let storyboardName = "Authentication"
 
     internal static let loginViewController = SceneType<SSSLManager_iOS.LoginViewController>(storyboard: Authentication.self, identifier: "LoginViewController")
+
+    internal static let registerViewController = SceneType<SSSLManager_iOS.RegisterViewController>(storyboard: Authentication.self, identifier: "RegisterViewController")
   }
   internal enum MainScreen: StoryboardType {
     internal static let storyboardName = "MainScreen"
@@ -24,6 +26,8 @@ internal enum StoryboardScene {
   }
   internal enum Profile: StoryboardType {
     internal static let storyboardName = "Profile"
+
+    internal static let editProfileViewController = SceneType<SSSLManager_iOS.EditProfileViewController>(storyboard: Profile.self, identifier: "EditProfileViewController")
 
     internal static let userProfileViewController = SceneType<SSSLManager_iOS.UserProfileViewController>(storyboard: Profile.self, identifier: "UserProfileViewController")
   }

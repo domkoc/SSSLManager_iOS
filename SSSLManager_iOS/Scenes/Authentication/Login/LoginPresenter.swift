@@ -10,6 +10,7 @@ import Foundation
 protocol LoginPresenterInput: AnyObject {
     var view: LoginView? { get set }
     var interactor: AuthenticationInteractorInput { get set }
+    func navigateToRegister()
     func login()
 }
 
@@ -43,5 +44,8 @@ extension LoginPresenter: LoginPresenterInput {
             }
             self.view?.stopLoading()
         }
+    }
+    func navigateToRegister() {
+        coordinator.navigateToRegister()
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SCHgroup: String, Codable {
+enum SCHgroup: String, Codable, CaseIterable {
     case sir
     case nyuszi
     case ttny
@@ -29,12 +29,12 @@ enum SCHgroup: String, Codable {
     }
 }
 
-enum Roles: String, Codable {
+enum Roles: String, Decodable {
     case user
     case admin
 }
 
-struct ProfileDownloadDto: Codable {
+struct ProfileDownloadDto: Decodable {
     let username: String?
     let id: UUID?
     let fullname: String
@@ -43,4 +43,20 @@ struct ProfileDownloadDto: Codable {
     let roles: [Roles]
     let created_at: Double?
     let updated_at: Double?
+}
+
+struct ProfileUploadDto: Encodable {
+    let username: String
+    let password: String
+    let fullname: String
+    let nickname: String?
+    let schgroup: SCHgroup?
+}
+
+struct ProfileEditDto: Encodable {
+    let id: UUID
+    let username: String
+    let fullname: String
+    let nickname: String?
+    let schgroup: SCHgroup?
 }

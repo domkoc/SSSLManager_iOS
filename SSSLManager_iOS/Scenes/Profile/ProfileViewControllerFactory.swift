@@ -12,4 +12,7 @@ class ProfileViewControllerFactory {
     class func makeUserProfileViewController() -> UserProfileViewController {
         Storyboard.userProfileViewController.instantiate()
     }
+    class func makeEditProfileViewController() -> EditProfileViewController {
+        Storyboard.editProfileViewController.instantiate()
+    }
 }

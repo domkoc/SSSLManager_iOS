@@ -13,4 +13,7 @@ class AuthenticationViewControllerFactory {
     class func makeLoginViewController() -> LoginViewController {
         Storyboard.loginViewController.instantiate()
     }
+    class func makeRegisterViewController() -> RegisterViewController {
+        Storyboard.registerViewController.instantiate()
+    }
 }
