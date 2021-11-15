@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--All Events View Controller-->
+        <scene sceneID="PLa-OI-5GW">
+            <objects>
+                <viewController storyboardIdentifier="AllEventsViewController" id="n7t-u3-Jpp" customClass="AllEventsViewController" customModule="SSSLManager_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ux8-zX-BvZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gom-pv-2WC">
+                                <rect key="frame" x="0.0" y="44" width="414" height="748"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <sections/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhE-Sv-hxa">
+                                <rect key="frame" x="0.0" y="800" width="414" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="Hiw-nF-0E5"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="New">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="newEventButtonTapped:" destination="n7t-u3-Jpp" eventType="touchUpInside" id="b01-xF-DDv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MwC-hP-Kvb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Gom-pv-2WC" firstAttribute="leading" secondItem="MwC-hP-Kvb" secondAttribute="leading" id="7LF-cW-9CP"/>
+                            <constraint firstItem="Gom-pv-2WC" firstAttribute="top" secondItem="MwC-hP-Kvb" secondAttribute="top" id="B3b-UW-WfM"/>
+                            <constraint firstItem="LhE-Sv-hxa" firstAttribute="top" secondItem="Gom-pv-2WC" secondAttribute="bottom" constant="8" id="DCV-ww-0mm"/>
+                            <constraint firstItem="LhE-Sv-hxa" firstAttribute="trailing" secondItem="MwC-hP-Kvb" secondAttribute="trailing" id="POo-7B-HYg"/>
+                            <constraint firstItem="LhE-Sv-hxa" firstAttribute="leading" secondItem="MwC-hP-Kvb" secondAttribute="leading" id="cl2-P3-ELJ"/>
+                            <constraint firstItem="MwC-hP-Kvb" firstAttribute="bottom" secondItem="LhE-Sv-hxa" secondAttribute="bottom" id="erf-Jc-1Fr"/>
+                            <constraint firstItem="MwC-hP-Kvb" firstAttribute="trailing" secondItem="Gom-pv-2WC" secondAttribute="trailing" id="ukA-Vf-15r"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="eventsTableView" destination="Gom-pv-2WC" id="bqJ-1u-dgg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="czw-JF-gtB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="272" y="81"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

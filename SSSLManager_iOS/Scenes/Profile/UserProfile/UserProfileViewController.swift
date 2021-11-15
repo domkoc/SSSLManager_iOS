@@ -19,10 +19,10 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         customizeViews()
     }
-    func customizeViews() {
+    private func customizeViews() {
         customizeTableView()
     }
-    func customizeTableView() {
+    private func customizeTableView() {
         userDetailsTableView.delegate = self
         userDetailsTableView.dataSource = self
         userDetailsTableView.registerCell(UserProfileTableViewCell.self)

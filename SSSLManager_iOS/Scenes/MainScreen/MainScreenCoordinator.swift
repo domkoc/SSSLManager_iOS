@@ -12,6 +12,7 @@ protocol MainScreenCoordinatorInput {
     func navigateBackToRoot()
     func navigateBackToLogin()
     func navigateToProfile(with profile: Profile)
+    func navigateToEvents()
 }
 
 class MainScreenCoordinator {
@@ -52,5 +53,10 @@ extension MainScreenCoordinator: MainScreenCoordinatorInput {
         ProfileCoordinator(rootViewController: self.rootViewController,
                            appCoordinator: self.appCoordinator)
             .start(with: profile)
+    }
+    func navigateToEvents() {
+        EventsCoordinator(rootViewController: self.rootViewController,
+                          appCoordinator: self.appCoordinator)
+            .start()
     }
 }

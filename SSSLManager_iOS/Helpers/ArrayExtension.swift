@@ -13,3 +13,8 @@ extension Array where Element: Hashable {
 extension Array where Element == String {
     var joinedWithNewLine: String { joined(separator: "\n") }
 }
+extension Array where Element == EventDownloadDto {
+    func asEvent() -> [Event] {
+        self.map { Event(dto: $0) }
+    }
+}

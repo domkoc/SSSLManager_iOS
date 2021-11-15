@@ -45,7 +45,7 @@ extension MainScreenPresenter: MainScreenPresenterInput {
         }
     }
     func navigateToEvents() {
-        
+        coordinator.navigateToEvents()
     }
     func navigateToProfile(with profile: Profile) {
         coordinator.navigateToProfile(with: profile)

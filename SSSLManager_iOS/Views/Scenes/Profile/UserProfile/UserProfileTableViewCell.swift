@@ -25,4 +25,4 @@ class UserProfileTableViewCell: UITableViewCell {
     }
 }
 
-extension UserProfileTableViewCell: NibLoadableView {}
+extension UserProfileTableViewCell: NibLoadableView { }
