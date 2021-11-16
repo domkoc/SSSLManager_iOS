@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import LocationPicker
 
 struct Event {
     var id: UUID
@@ -54,5 +55,20 @@ struct Event {
         self.applicationStart = dto.application_start != nil ? Date(timeIntervalSince1970: dto.application_start!) : nil
         self.applicationEnd = dto.application_end != nil ? Date(timeIntervalSince1970: dto.application_end!) : nil
         self.parentEventID = dto.parent_event
+    }
+}
+
+struct NewEvent {
+    var title: String
+    var description: String
+    var startDate: Date
+    var endDate: Date
+    var location: Location
+    var dto: NewEventUploadDto {
+        NewEventUploadDto(title: title,
+                          description: description,
+                          startDate: startDate.timeIntervalSince1970,
+                          endDate: endDate.timeIntervalSince1970,
+                          location: "\(location.coordinate.latitude):\(location.coordinate.longitude)")
     }
 }

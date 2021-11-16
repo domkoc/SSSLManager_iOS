@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol EventsCoordinatorInput {
-    
+    func navigateToNewEvent()
 }
 
 class EventsCoordinator {
@@ -36,5 +36,13 @@ class EventsCoordinator {
 }
 
 extension EventsCoordinator: EventsCoordinatorInput {
-    
+    func navigateToNewEvent() {
+        let newEventViewController = EventsViewControllerFactory.makeNewEventViewController()
+        let newEventPresenter = NewEventPresenter(view: newEventViewController,
+                                                  interactor: self.interactor,
+                                                  coordinator: self)
+        newEventViewController.presenter = newEventPresenter
+        rootViewController?.setNavigationBarHidden(false, animated: true)
+        rootViewController?.pushViewController(newEventViewController, animated: true)
+    }
 }

@@ -17,6 +17,9 @@ enum EventsInteractorError: Error {
 
 protocol EventsInteractorInput: AnyObject {
     func getEvents(completion: @escaping (Result<[Event], EventsInteractorError>) -> Void)
+    func createNewEvent(newEvent: NewEvent,
+                        completion: @escaping (Result<Event,
+                                               EventsInteractorError>) -> Void)
 }
 
 class EventsInteractor {
@@ -32,6 +35,18 @@ extension EventsInteractor: EventsInteractorInput {
             switch result {
             case .success(let events):
                 completion(.success(events.asEvent()))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
+        }
+    }
+    func createNewEvent(newEvent: NewEvent,
+                        completion: @escaping (Result<Event,
+                                               EventsInteractorError>) -> Void) {
+        eventApi.createNewEvent(with: newEvent.dto) { result in
+            switch result {
+            case .success(let event):
+                completion(.success(Event.init(dto: event)))
             case .error(let message):
                 completion(.failure(.error(message)))
             }

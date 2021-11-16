@@ -39,6 +39,7 @@ class AllEventsViewController: UIViewController {
         eventsTableView.registerCell(EventTableViewCell.self)
     }
     @IBAction func newEventButtonTapped(_ sender: UIButton) {
+        presenter?.navigateToNewEvent()
     }
 }
 

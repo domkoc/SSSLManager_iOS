@@ -12,4 +12,10 @@ class EventsViewControllerFactory {
     class func makeAllEventsViewController() -> AllEventsViewController {
         Storyboard.allEventsViewController.instantiate()
     }
+    class func makeNewEventViewController() -> NewEventViewController {
+        Storyboard.newEventViewController.instantiate()
+    }
+    class func makeEventDetailsViewController() -> EventDetailsViewController {
+        Storyboard.eventDetailsViewController.instantiate()
+    }
 }

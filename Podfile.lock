@@ -3,6 +3,7 @@ PODS:
   - IQKeyboardManagerSwift (6.5.7)
   - KeychainAccess (4.2.2)
   - Kingfisher (7.1.1)
+  - LocationPicker (1.4.2)
   - SwiftGen (6.5.1)
 
 DEPENDENCIES:
@@ -10,6 +11,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - KeychainAccess
   - Kingfisher (~> 7.0)
+  - LocationPicker
   - SwiftGen (~> 6.0)
 
 SPEC REPOS:
@@ -18,6 +20,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - KeychainAccess
     - Kingfisher
+    - LocationPicker
     - SwiftGen
 
 SPEC CHECKSUMS:
@@ -25,8 +28,9 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c742184c72b0b3bbb902cc6cdcf4ecda91d3b3e0
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
+  LocationPicker: 9af49409ec3ca13fdf4bf6b39e1a3c7dec029f4a
   SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea
 
-PODFILE CHECKSUM: c1cffb4be4af5c0cc93aa6f6f5f9b54a6e5fd1f5
+PODFILE CHECKSUM: b7adc884142238b15e60f9318f3a14d24fde1c4c
 
 COCOAPODS: 1.11.2

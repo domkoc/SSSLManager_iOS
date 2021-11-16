@@ -60,6 +60,12 @@
 		D5B846EB27427CE600BE14A4 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B846E927427CE600BE14A4 /* EventTableViewCell.swift */; };
 		D5B846EC27427CE600BE14A4 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B846EA27427CE600BE14A4 /* EventTableViewCell.xib */; };
 		D5B846EE274289E500BE14A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B846ED274289E500BE14A4 /* Main.storyboard */; };
+		D5BAB3E82743BAD4006AEE8F /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BAB3E72743BAD4006AEE8F /* NewEventViewController.swift */; };
+		D5BAB3EA2743BADB006AEE8F /* NewEventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BAB3E92743BADB006AEE8F /* NewEventPresenter.swift */; };
+		D5BAB3EC2743BAE6006AEE8F /* NewEventPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BAB3EB2743BAE6006AEE8F /* NewEventPresentationModel.swift */; };
+		D5BAB3EE2743BB06006AEE8F /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BAB3ED2743BB06006AEE8F /* EventDetailsViewController.swift */; };
+		D5BAB3F02743BB11006AEE8F /* EventDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BAB3EF2743BB11006AEE8F /* EventDetailsPresenter.swift */; };
+		D5BAB3F22743BB1D006AEE8F /* EventDetailsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BAB3F12743BB1D006AEE8F /* EventDetailsPresentationModel.swift */; };
 		D5BEF964273563C80054C1B9 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BEF963273563C80054C1B9 /* UserService.swift */; };
 		D5BEF967273566040054C1B9 /* AuthenticationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BEF966273566040054C1B9 /* AuthenticationInteractor.swift */; };
 		D5BEF96A2735666F0054C1B9 /* AuthenticationDTOs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BEF9692735666F0054C1B9 /* AuthenticationDTOs.swift */; };
@@ -142,6 +148,12 @@
 		D5B846E927427CE600BE14A4 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		D5B846EA27427CE600BE14A4 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		D5B846ED274289E500BE14A4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D5BAB3E72743BAD4006AEE8F /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
+		D5BAB3E92743BADB006AEE8F /* NewEventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventPresenter.swift; sourceTree = "<group>"; };
+		D5BAB3EB2743BAE6006AEE8F /* NewEventPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventPresentationModel.swift; sourceTree = "<group>"; };
+		D5BAB3ED2743BB06006AEE8F /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		D5BAB3EF2743BB11006AEE8F /* EventDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsPresenter.swift; sourceTree = "<group>"; };
+		D5BAB3F12743BB1D006AEE8F /* EventDetailsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsPresentationModel.swift; sourceTree = "<group>"; };
 		D5BEF963273563C80054C1B9 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D5BEF966273566040054C1B9 /* AuthenticationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInteractor.swift; sourceTree = "<group>"; };
 		D5BEF9692735666F0054C1B9 /* AuthenticationDTOs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDTOs.swift; sourceTree = "<group>"; };
@@ -296,6 +308,8 @@
 		D5B846D127426A6900BE14A4 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				D5BAB3E62743B912006AEE8F /* EventDetails */,
+				D5BAB3E52743B8FE006AEE8F /* NewEvent */,
 				D5B846DC274275B400BE14A4 /* AllEvents */,
 				D5B846D427426A9E00BE14A4 /* EventsInteractor.swift */,
 				D5B846D627426AA600BE14A4 /* EventsCoordinator.swift */,
@@ -330,6 +344,26 @@
 				D5B846EA27427CE600BE14A4 /* EventTableViewCell.xib */,
 			);
 			path = AllEvents;
+			sourceTree = "<group>";
+		};
+		D5BAB3E52743B8FE006AEE8F /* NewEvent */ = {
+			isa = PBXGroup;
+			children = (
+				D5BAB3E72743BAD4006AEE8F /* NewEventViewController.swift */,
+				D5BAB3E92743BADB006AEE8F /* NewEventPresenter.swift */,
+				D5BAB3EB2743BAE6006AEE8F /* NewEventPresentationModel.swift */,
+			);
+			path = NewEvent;
+			sourceTree = "<group>";
+		};
+		D5BAB3E62743B912006AEE8F /* EventDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D5BAB3ED2743BB06006AEE8F /* EventDetailsViewController.swift */,
+				D5BAB3EF2743BB11006AEE8F /* EventDetailsPresenter.swift */,
+				D5BAB3F12743BB1D006AEE8F /* EventDetailsPresentationModel.swift */,
+			);
+			path = EventDetails;
 			sourceTree = "<group>";
 		};
 		D5BEF965273565F00054C1B9 /* Authentication */ = {
@@ -660,6 +694,7 @@
 				D52FC814274127B40053DF6F /* RegisterPresenter.swift in Sources */,
 				D5D43FCA273544E100EDE6B0 /* NetworkConfigurator.swift in Sources */,
 				D52FC81827413C480053DF6F /* OptionalExtension.swift in Sources */,
+				D5BAB3F22743BB1D006AEE8F /* EventDetailsPresentationModel.swift in Sources */,
 				D52FC816274127BE0053DF6F /* RegisterPresentationModel.swift in Sources */,
 				D5D43FD2273549E800EDE6B0 /* SSSLAuthenticator.swift in Sources */,
 				D59DDB12273E729500351FAF /* UserProfileViewController.swift in Sources */,
@@ -667,6 +702,7 @@
 				D52912E1273FC53B004D0731 /* ReusableView.swift in Sources */,
 				D5BEF967273566040054C1B9 /* AuthenticationInteractor.swift in Sources */,
 				D5D43FA827352EF100EDE6B0 /* AppDelegate.swift in Sources */,
+				D5BAB3E82743BAD4006AEE8F /* NewEventViewController.swift in Sources */,
 				D52912DF273FC518004D0731 /* UITableViewExtension.swift in Sources */,
 				D5BEF96E273569410054C1B9 /* ErrorDTOs.swift in Sources */,
 				D52C3B33273825810060FDFC /* MainScreenViewControllerFactory.swift in Sources */,
@@ -684,13 +720,17 @@
 				D52C3B2B273820F10060FDFC /* MainScreenInteractor.swift in Sources */,
 				D52C3B2527381B8D0060FDFC /* MainScreenCoordinator.swift in Sources */,
 				D59685F62735D59F007A3AB2 /* Storyboards.swift in Sources */,
+				D5BAB3EE2743BB06006AEE8F /* EventDetailsViewController.swift in Sources */,
 				D59685ED2735D334007A3AB2 /* AuthenticationViewControllerFactory.swift in Sources */,
 				D52FC81B27415D250053DF6F /* EditProfileViewController.swift in Sources */,
+				D5BAB3EA2743BADB006AEE8F /* NewEventPresenter.swift in Sources */,
 				D52FC812274127AB0053DF6F /* RegisterViewController.swift in Sources */,
 				D59685E92735CCFD007A3AB2 /* ProfileDTOs.swift in Sources */,
 				D52912DD273FC0DF004D0731 /* NibLoadableView.swift in Sources */,
 				D5D43FD927355B2000EDE6B0 /* AuthenticationAPI.swift in Sources */,
+				D5BAB3F02743BB11006AEE8F /* EventDetailsPresenter.swift in Sources */,
 				D5D43FAA27352EF100EDE6B0 /* SceneDelegate.swift in Sources */,
+				D5BAB3EC2743BAE6006AEE8F /* NewEventPresentationModel.swift in Sources */,
 				D59DDB14273E72A600351FAF /* UserProfilePresenter.swift in Sources */,
 				D5B846DE274275C800BE14A4 /* AllEventsViewController.swift in Sources */,
 				D5B846E2274275E200BE14A4 /* AllEventsPresentationModel.swift in Sources */,

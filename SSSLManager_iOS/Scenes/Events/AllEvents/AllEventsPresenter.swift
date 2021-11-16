@@ -12,6 +12,7 @@ protocol AllEventsPresenterInput: AnyObject {
     var interactor: EventsInteractorInput { get set }
     var presentationModel: AllEventsPresentationModel? { get set }
     func loadEventsData()
+    func navigateToNewEvent()
 }
 
 class AllEventsPresenter {
@@ -39,5 +40,8 @@ extension AllEventsPresenter: AllEventsPresenterInput {
             }
             
         }
+    }
+    func navigateToNewEvent() {
+        coordinator.navigateToNewEvent()
     }
 }

@@ -23,6 +23,10 @@ internal enum StoryboardScene {
     internal static let storyboardName = "Events"
 
     internal static let allEventsViewController = SceneType<SSSLManager_iOS.AllEventsViewController>(storyboard: Events.self, identifier: "AllEventsViewController")
+
+    internal static let eventDetailsViewController = SceneType<SSSLManager_iOS.EventDetailsViewController>(storyboard: Events.self, identifier: "EventDetailsViewController")
+
+    internal static let newEventViewController = SceneType<SSSLManager_iOS.NewEventViewController>(storyboard: Events.self, identifier: "NewEventViewController")
   }
   internal enum MainScreen: StoryboardType {
     internal static let storyboardName = "MainScreen"
