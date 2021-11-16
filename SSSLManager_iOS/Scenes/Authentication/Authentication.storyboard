@@ -23,7 +23,7 @@
                                 <color key="tintColor" name="AccentColor"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMQ-Hn-AdK">
-                                <rect key="frame" x="0.0" y="402.5" width="414" height="62"/>
+                                <rect key="frame" x="8" y="402.5" width="398" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="qa0-UG-RCs"/>
                                 </constraints>
@@ -126,8 +126,8 @@
                             <constraint firstItem="XAI-3V-s7w" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="5fr-Ii-1yc"/>
                             <constraint firstItem="XAI-3V-s7w" firstAttribute="top" secondItem="jol-WZ-1GX" secondAttribute="bottom" id="699-A7-bRq"/>
                             <constraint firstItem="qMQ-Hn-AdK" firstAttribute="top" secondItem="XAI-3V-s7w" secondAttribute="bottom" id="NYE-IM-xK9"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qMQ-Hn-AdK" secondAttribute="trailing" id="S1Z-Kc-Era"/>
-                            <constraint firstItem="qMQ-Hn-AdK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ket-8e-qMd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qMQ-Hn-AdK" secondAttribute="trailing" constant="8" id="S1Z-Kc-Era"/>
+                            <constraint firstItem="qMQ-Hn-AdK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="ket-8e-qMd"/>
                             <constraint firstItem="jol-WZ-1GX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="vAO-Yc-Tu8"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XAI-3V-s7w" secondAttribute="trailing" constant="16" id="wfy-gh-9uq"/>
                             <constraint firstItem="jol-WZ-1GX" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.15" id="wkn-Ji-nXH"/>
@@ -209,7 +209,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="nickname"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoG-QR-j3L">
-                                <rect key="frame" x="0.0" y="60" width="414" height="62"/>
+                                <rect key="frame" x="8" y="60" width="398" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="srR-8X-Oyu"/>
                                 </constraints>
@@ -239,7 +239,7 @@
                             <constraint firstItem="0rU-G3-sFE" firstAttribute="top" secondItem="S9h-Hn-kGV" secondAttribute="bottom" constant="8" id="Ade-7H-Fxf"/>
                             <constraint firstItem="KT1-hT-jgL" firstAttribute="trailing" secondItem="0rU-G3-sFE" secondAttribute="trailing" constant="16" id="BbE-Co-WPp"/>
                             <constraint firstItem="KT1-hT-jgL" firstAttribute="trailing" secondItem="xhB-IG-Fr6" secondAttribute="trailing" constant="16" id="H7a-8t-6CC"/>
-                            <constraint firstItem="NoG-QR-j3L" firstAttribute="leading" secondItem="KT1-hT-jgL" secondAttribute="leading" id="HE0-08-guK"/>
+                            <constraint firstItem="NoG-QR-j3L" firstAttribute="leading" secondItem="KT1-hT-jgL" secondAttribute="leading" constant="8" id="HE0-08-guK"/>
                             <constraint firstItem="NoG-QR-j3L" firstAttribute="top" secondItem="KT1-hT-jgL" secondAttribute="top" constant="16" id="IRG-lD-mfN"/>
                             <constraint firstItem="9Vv-Zg-pYw" firstAttribute="leading" secondItem="KT1-hT-jgL" secondAttribute="leading" constant="16" id="JHK-f2-bsI"/>
                             <constraint firstItem="KT1-hT-jgL" firstAttribute="trailing" secondItem="LpA-Sz-JkK" secondAttribute="trailing" constant="16" id="Mzz-y1-eod"/>
@@ -248,7 +248,7 @@
                             <constraint firstItem="KT1-hT-jgL" firstAttribute="trailing" secondItem="UiX-Ef-Lmg" secondAttribute="trailing" constant="16" id="P9p-v3-4Vz"/>
                             <constraint firstItem="8Kx-1H-2vu" firstAttribute="top" secondItem="xhB-IG-Fr6" secondAttribute="bottom" constant="62" id="Rp5-jC-hD6"/>
                             <constraint firstItem="CaW-JV-b0W" firstAttribute="leading" secondItem="KT1-hT-jgL" secondAttribute="leading" constant="16" id="SIW-Oz-vMQ"/>
-                            <constraint firstItem="NoG-QR-j3L" firstAttribute="trailing" secondItem="KT1-hT-jgL" secondAttribute="trailing" id="Tbd-Oi-Gba"/>
+                            <constraint firstItem="KT1-hT-jgL" firstAttribute="trailing" secondItem="NoG-QR-j3L" secondAttribute="trailing" constant="8" id="Tbd-Oi-Gba"/>
                             <constraint firstItem="LpA-Sz-JkK" firstAttribute="top" secondItem="Raj-qc-rth" secondAttribute="bottom" constant="8" id="WKT-JG-I5i"/>
                             <constraint firstItem="KT1-hT-jgL" firstAttribute="trailing" secondItem="Raj-qc-rth" secondAttribute="trailing" constant="16" id="amo-qo-8Xe"/>
                             <constraint firstItem="LpA-Sz-JkK" firstAttribute="leading" secondItem="KT1-hT-jgL" secondAttribute="leading" constant="16" id="azP-Yl-ly4"/>
