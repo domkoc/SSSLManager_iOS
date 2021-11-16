@@ -49,6 +49,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="editButton" destination="dyn-j7-wLe" id="Yxf-Mo-AFV"/>
+                        <outlet property="editButtonHeightConstraint" destination="S07-Nx-cwe" id="FVi-vK-zeP"/>
+                        <outlet property="editButtonTopConstraint" destination="tsw-XC-kkk" id="hsN-2H-Fjd"/>
                         <outlet property="userDetailsTableView" destination="ahD-wo-mpi" id="zvH-gI-Dhv"/>
                     </connections>
                 </viewController>

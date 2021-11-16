@@ -18,6 +18,7 @@ class AllEventsViewController: UIViewController {
     var presenter: AllEventsPresenterInput?
     private var presentationModel: AllEventsPresentationModel? {
         didSet {
+            presenter?.presentationModel = self.presentationModel
             guard self.presentationModel != nil else { return }
             eventsTableView.reloadData()
         }
@@ -65,5 +66,7 @@ extension AllEventsViewController: UITableViewDataSource {
 }
 
 extension AllEventsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.navigateToEvent(index: indexPath.row)
+    }
 }

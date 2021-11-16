@@ -20,12 +20,18 @@ protocol EventsInteractorInput: AnyObject {
     func createNewEvent(newEvent: NewEvent,
                         completion: @escaping (Result<Event,
                                                EventsInteractorError>) -> Void)
+    func getProfileById(id: UUID,
+                        completion: @escaping (Result<Profile,
+                                               EventsInteractorError>) -> Void)
 }
 
 class EventsInteractor {
     private let eventApi: EventAPIInput
-    init(eventApi: EventAPIInput) {
+    private let profileApi: ProfileAPIInput
+    init(eventApi: EventAPIInput,
+         profileApi: ProfileAPIInput) {
         self.eventApi = eventApi
+        self.profileApi = profileApi
     }
 }
 
@@ -47,6 +53,18 @@ extension EventsInteractor: EventsInteractorInput {
             switch result {
             case .success(let event):
                 completion(.success(Event.init(dto: event)))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
+        }
+    }
+    func getProfileById(id: UUID,
+                        completion: @escaping (Result<Profile,
+                                               EventsInteractorError>) -> Void) {
+        profileApi.getProfilebyId(with: id) { result in
+            switch result {
+            case .success(let profile):
+                completion(.success(Profile(dto: profile)))
             case .error(let message):
                 completion(.failure(.error(message)))
             }

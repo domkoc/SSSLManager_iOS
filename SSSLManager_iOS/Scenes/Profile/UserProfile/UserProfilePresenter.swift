@@ -12,6 +12,7 @@ protocol UserProfilePresenterInput: AnyObject {
     var interactor: ProfileInteractorInput { get set }
     var presentationModel: UserProfilePresentationModel { get set }
     func navigateToEditProfile()
+    func isMyProfile() -> Bool
 }
 
 class UserProfilePresenter {
@@ -33,5 +34,8 @@ class UserProfilePresenter {
 extension UserProfilePresenter: UserProfilePresenterInput {
     func navigateToEditProfile() {
         coordinator.navigateToEditProfile(with: presentationModel.profile)
+    }
+    func isMyProfile() -> Bool {
+        presentationModel.profile.id == UserService.shared.currentUser?.id
     }
 }

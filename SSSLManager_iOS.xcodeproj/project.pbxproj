@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		800CB69259B81D277FDC14BC /* Pods_SSSLManager_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E877306A7A854BF2360FF0 /* Pods_SSSLManager_iOS.framework */; };
+		D50CF72F27444AC5005064AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D50CF72E27444AC5005064AD /* Main.storyboard */; };
 		D52912D8273FB3B6004D0731 /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52912D6273FB3B6004D0731 /* UserProfileTableViewCell.swift */; };
 		D52912D9273FB3B6004D0731 /* UserProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D52912D7273FB3B6004D0731 /* UserProfileTableViewCell.xib */; };
 		D52912DD273FC0DF004D0731 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52912DC273FC0DF004D0731 /* NibLoadableView.swift */; };
@@ -59,7 +60,6 @@
 		D5B846E62742768D00BE14A4 /* EventDTOs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B846E52742768D00BE14A4 /* EventDTOs.swift */; };
 		D5B846EB27427CE600BE14A4 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B846E927427CE600BE14A4 /* EventTableViewCell.swift */; };
 		D5B846EC27427CE600BE14A4 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B846EA27427CE600BE14A4 /* EventTableViewCell.xib */; };
-		D5B846EE274289E500BE14A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B846ED274289E500BE14A4 /* Main.storyboard */; };
 		D5BAB3E82743BAD4006AEE8F /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BAB3E72743BAD4006AEE8F /* NewEventViewController.swift */; };
 		D5BAB3EA2743BADB006AEE8F /* NewEventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BAB3E92743BADB006AEE8F /* NewEventPresenter.swift */; };
 		D5BAB3EC2743BAE6006AEE8F /* NewEventPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BAB3EB2743BAE6006AEE8F /* NewEventPresentationModel.swift */; };
@@ -96,6 +96,7 @@
 		10E877306A7A854BF2360FF0 /* Pods_SSSLManager_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSSLManager_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A793CA0A8F012D6436A570A /* Pods-SSSLManager_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSLManager_iOS.debug.xcconfig"; path = "Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B2B6FAD2AF7F0863E524F028 /* Pods-SSSLManager_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSLManager_iOS.release.xcconfig"; path = "Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		D50CF72E27444AC5005064AD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D52912D6273FB3B6004D0731 /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewCell.swift; sourceTree = "<group>"; };
 		D52912D7273FB3B6004D0731 /* UserProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileTableViewCell.xib; sourceTree = "<group>"; };
 		D52912DC273FC0DF004D0731 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
@@ -147,7 +148,6 @@
 		D5B846E52742768D00BE14A4 /* EventDTOs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDTOs.swift; sourceTree = "<group>"; };
 		D5B846E927427CE600BE14A4 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		D5B846EA27427CE600BE14A4 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
-		D5B846ED274289E500BE14A4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D5BAB3E72743BAD4006AEE8F /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		D5BAB3E92743BADB006AEE8F /* NewEventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventPresenter.swift; sourceTree = "<group>"; };
 		D5BAB3EB2743BAE6006AEE8F /* NewEventPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventPresentationModel.swift; sourceTree = "<group>"; };
@@ -443,7 +443,7 @@
 				D5D43FC627353EDF00EDE6B0 /* Views */,
 				D5BEF9742735732C0054C1B9 /* Helpers */,
 				D5D43FB827352EF200EDE6B0 /* Info.plist */,
-				D5B846ED274289E500BE14A4 /* Main.storyboard */,
+				D50CF72E27444AC5005064AD /* Main.storyboard */,
 			);
 			path = SSSLManager_iOS;
 			sourceTree = "<group>";
@@ -605,7 +605,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5B846EC27427CE600BE14A4 /* EventTableViewCell.xib in Resources */,
-				D5B846EE274289E500BE14A4 /* Main.storyboard in Resources */,
+				D50CF72F27444AC5005064AD /* Main.storyboard in Resources */,
 				D52912D9273FB3B6004D0731 /* UserProfileTableViewCell.xib in Resources */,
 				D5D43FB727352EF200EDE6B0 /* LaunchScreen.storyboard in Resources */,
 				D5D43FC02735357000EDE6B0 /* Colors.xcassets in Resources */,
@@ -899,9 +899,9 @@
 				DEVELOPMENT_TEAM = YN42379P63;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SSSLManager_iOS/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location data to help you select an Events location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -930,9 +930,9 @@
 				DEVELOPMENT_TEAM = YN42379P63;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SSSLManager_iOS/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location data to help you select an Events location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

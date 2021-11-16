@@ -48,6 +48,7 @@ class NewEventViewController: UIViewController {
     }
     private func customizeLocationPicker() {
         locationPicker.completion = { self.selectedLocation = $0 }
+        locationPicker.mapType = .standard
     }
     private func customizeTextFields() {
         startDateTextField.inputView = startDatePicker

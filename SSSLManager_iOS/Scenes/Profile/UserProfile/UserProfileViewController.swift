@@ -14,6 +14,9 @@ protocol UserProfileView: BaseView {
 
 class UserProfileViewController: UIViewController {
     @IBOutlet weak var userDetailsTableView: UITableView!
+    @IBOutlet weak var editButtonHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var editButtonTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var editButton: UIButton!
     var presenter: UserProfilePresenterInput?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +24,19 @@ class UserProfileViewController: UIViewController {
     }
     private func customizeViews() {
         customizeTableView()
+        customizeEditButton()
     }
     private func customizeTableView() {
         userDetailsTableView.delegate = self
         userDetailsTableView.dataSource = self
         userDetailsTableView.registerCell(UserProfileTableViewCell.self)
+    }
+    private func customizeEditButton() {
+        if !(presenter?.isMyProfile() ?? false) {
+            editButtonHeightConstraint.constant = 0
+            editButtonTopConstraint.constant = 0
+            editButton.isHidden = true
+        }
     }
     @IBAction func editButtonTapped(_ sender: UIButton) {
         presenter?.navigateToEditProfile()

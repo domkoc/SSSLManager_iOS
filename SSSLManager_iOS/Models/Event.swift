@@ -7,6 +7,7 @@
 
 import Foundation
 import LocationPicker
+import CoreLocation
 
 struct Event {
     var id: UUID
@@ -15,7 +16,7 @@ struct Event {
     var description: String
     var startDate: Date
     var endDate: Date
-    var location: String
+    var location: CLLocation
     var isApplyable: Bool
     var applicationStart: Date?
     var applicationEnd: Date?
@@ -26,7 +27,7 @@ struct Event {
          description: String,
          startDate: Date,
          endDate: Date,
-         location: String,
+         location: CLLocation,
          isApplyable: Bool,
          applicationStart: Date? = nil,
          applicationEnd: Date? = nil,
@@ -50,7 +51,13 @@ struct Event {
         self.description = dto.description
         self.startDate = Date(timeIntervalSince1970: dto.start_date)
         self.endDate = Date(timeIntervalSince1970: dto.end_date)
-        self.location = dto.location
+        if let latitude: Double = Double(dto.location.split(separator: ":")[0]),
+           let longitude: Double = Double(dto.location.split(separator: ":")[1]) {
+            self.location = CLLocation(latitude: latitude,
+                                       longitude: longitude)
+        } else {
+            self.location = CLLocation()
+        }
         self.isApplyable = dto.is_applyable
         self.applicationStart = dto.application_start != nil ? Date(timeIntervalSince1970: dto.application_start!) : nil
         self.applicationEnd = dto.application_end != nil ? Date(timeIntervalSince1970: dto.application_end!) : nil

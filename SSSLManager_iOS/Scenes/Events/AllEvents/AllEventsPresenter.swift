@@ -13,6 +13,7 @@ protocol AllEventsPresenterInput: AnyObject {
     var presentationModel: AllEventsPresentationModel? { get set }
     func loadEventsData()
     func navigateToNewEvent()
+    func navigateToEvent(index: Int)
 }
 
 class AllEventsPresenter {
@@ -43,5 +44,11 @@ extension AllEventsPresenter: AllEventsPresenterInput {
     }
     func navigateToNewEvent() {
         coordinator.navigateToNewEvent()
+    }
+    func navigateToEvent(index: Int) {
+        guard let event = presentationModel?.events[index] else {
+            return
+        }
+        coordinator.navigateToEventDetails(with: event)
     }
 }

@@ -9,4 +9,5 @@ import Foundation
 
 struct EventDetailsPresentationModel {
     let event: Event
+    var organizer: Profile?
 }

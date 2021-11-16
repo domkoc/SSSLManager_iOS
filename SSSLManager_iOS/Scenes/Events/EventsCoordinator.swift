@@ -10,19 +10,24 @@ import UIKit
 
 protocol EventsCoordinatorInput {
     func navigateToNewEvent()
+    func navigateToEventDetails(with event: Event)
+    func navigateToProfile(of profile: Profile)
 }
 
 class EventsCoordinator {
     private weak var rootViewController: UINavigationController?
     private weak var appCoordinator: AppCoordinator?
     private let eventApi: EventAPIInput
+    private let profileApi: ProfileAPIInput
     private let interactor: EventsInteractorInput
     init(rootViewController: UINavigationController,
          appCoordinator: AppCoordinator) {
         self.rootViewController = rootViewController
         self.appCoordinator = appCoordinator
         self.eventApi = EventAPI()
-        self.interactor = EventsInteractor(eventApi: eventApi)
+        self.profileApi = ProfileAPI()
+        self.interactor = EventsInteractor(eventApi: eventApi,
+                                           profileApi: profileApi)
     }
     func start() {
         let allEventsViewController = EventsViewControllerFactory.makeAllEventsViewController()
@@ -44,5 +49,22 @@ extension EventsCoordinator: EventsCoordinatorInput {
         newEventViewController.presenter = newEventPresenter
         rootViewController?.setNavigationBarHidden(false, animated: true)
         rootViewController?.pushViewController(newEventViewController, animated: true)
+    }
+    func navigateToEventDetails(with event: Event) {
+        let eventDetailsViewController = EventsViewControllerFactory.makeEventDetailsViewController()
+        let eventDetailsPresenter = EventDetailsPresenter(view: eventDetailsViewController,
+                                                          interactor: self.interactor,
+                                                          coordinator: self,
+                                                          presentationModel: EventDetailsPresentationModel(event: event))
+        eventDetailsViewController.presenter = eventDetailsPresenter
+        rootViewController?.setNavigationBarHidden(false, animated: true)
+        rootViewController?.pushViewController(eventDetailsViewController, animated: true)
+    }
+    func navigateToProfile(of profile: Profile) {
+        guard let rootViewController = self.rootViewController,
+              let appCoordinator = self.appCoordinator else { return }
+        ProfileCoordinator(rootViewController: rootViewController,
+                           appCoordinator: appCoordinator)
+            .start(with: profile)
     }
 }
