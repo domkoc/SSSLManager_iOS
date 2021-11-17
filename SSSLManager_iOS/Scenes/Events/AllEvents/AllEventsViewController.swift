@@ -15,6 +15,9 @@ protocol AllEventsView: BaseView {
 
 class AllEventsViewController: UIViewController {
     @IBOutlet weak var eventsTableView: UITableView!
+    @IBOutlet weak var newEventButtonTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var newEventButtonHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var newEventButton: UIButton!
     var presenter: AllEventsPresenterInput?
     private var presentationModel: AllEventsPresentationModel? {
         didSet {
@@ -47,6 +50,11 @@ class AllEventsViewController: UIViewController {
 extension AllEventsViewController: AllEventsView {
     func loadEventsData(_ presentationModel: AllEventsPresentationModel) {
         self.presentationModel = presentationModel
+        if presenter?.isUsersEvents() ?? false {
+            newEventButton.isHidden = true
+            newEventButtonHeightConstraint.constant = 0
+            newEventButtonTopConstraint.constant = 0
+        }
     }
 }
 

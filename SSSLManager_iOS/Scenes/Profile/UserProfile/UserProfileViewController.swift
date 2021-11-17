@@ -41,6 +41,9 @@ class UserProfileViewController: UIViewController {
     @IBAction func editButtonTapped(_ sender: UIButton) {
         presenter?.navigateToEditProfile()
     }
+    @IBAction func usersEventsButtonTapped(_ sender: UIButton) {
+        presenter?.navigateToUsersEvents()
+    }
 }
 
 extension UserProfileViewController: UserProfileView {

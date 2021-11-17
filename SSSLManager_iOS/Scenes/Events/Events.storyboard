@@ -51,6 +51,9 @@
                     </view>
                     <connections>
                         <outlet property="eventsTableView" destination="Gom-pv-2WC" id="bqJ-1u-dgg"/>
+                        <outlet property="newEventButton" destination="LhE-Sv-hxa" id="kU6-hW-YST"/>
+                        <outlet property="newEventButtonHeightConstraint" destination="Hiw-nF-0E5" id="X6v-Ef-ga6"/>
+                        <outlet property="newEventButtonTopConstraint" destination="DCV-ww-0mm" id="Mik-pr-vKY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czw-JF-gtB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

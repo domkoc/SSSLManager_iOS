@@ -16,13 +16,17 @@ enum EventsInteractorError: Error {
 }
 
 protocol EventsInteractorInput: AnyObject {
-    func getEvents(completion: @escaping (Result<[Event], EventsInteractorError>) -> Void)
+    func getEvents(completion: @escaping (Result<[Event],
+                                          EventsInteractorError>) -> Void)
     func createNewEvent(newEvent: NewEvent,
                         completion: @escaping (Result<Event,
                                                EventsInteractorError>) -> Void)
     func getProfileById(id: UUID,
                         completion: @escaping (Result<Profile,
                                                EventsInteractorError>) -> Void)
+    func getEventsByUserId(id: UUID,
+                           completion: @escaping (Result<[Event],
+                                                  EventsInteractorError>) -> Void)
 }
 
 class EventsInteractor {
@@ -65,6 +69,18 @@ extension EventsInteractor: EventsInteractorInput {
             switch result {
             case .success(let profile):
                 completion(.success(Profile(dto: profile)))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
+        }
+    }
+    func getEventsByUserId(id: UUID,
+                           completion: @escaping (Result<[Event],
+                                                  EventsInteractorError>) -> Void) {
+        eventApi.getEventsByUserId(with: id) { result in
+            switch result {
+            case .success(let events):
+                completion(.success(events.asEvent()))
             case .error(let message):
                 completion(.failure(.error(message)))
             }

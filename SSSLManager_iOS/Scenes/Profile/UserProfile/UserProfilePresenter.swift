@@ -13,6 +13,7 @@ protocol UserProfilePresenterInput: AnyObject {
     var presentationModel: UserProfilePresentationModel { get set }
     func navigateToEditProfile()
     func isMyProfile() -> Bool
+    func navigateToUsersEvents()
 }
 
 class UserProfilePresenter {
@@ -37,5 +38,8 @@ extension UserProfilePresenter: UserProfilePresenterInput {
     }
     func isMyProfile() -> Bool {
         presentationModel.profile.id == UserService.shared.currentUser?.id
+    }
+    func navigateToUsersEvents() {
+        coordinator.navigateToEventsOf(presentationModel.profile.id)
     }
 }

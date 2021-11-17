@@ -11,6 +11,7 @@ import UIKit
 protocol ProfileCoordinatorInput {
     func navigateToEditProfile(with profile: Profile)
     func navigateToMainScreen()
+    func navigateToEventsOf(_ userid: UUID)
 }
 
 class ProfileCoordinator {
@@ -50,5 +51,12 @@ extension ProfileCoordinator: ProfileCoordinatorInput {
     }
     func navigateToMainScreen() {
         appCoordinator?.navigateToMainScreen()
+    }
+    func navigateToEventsOf(_ userid: UUID) {
+        guard let rootViewController = self.rootViewController,
+              let appCoordinator = self.appCoordinator else { return }
+        EventsCoordinator(rootViewController: rootViewController,
+                          appCoordinator: appCoordinator)
+            .start(with: userid)
     }
 }

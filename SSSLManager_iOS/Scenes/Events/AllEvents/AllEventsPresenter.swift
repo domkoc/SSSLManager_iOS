@@ -14,6 +14,7 @@ protocol AllEventsPresenterInput: AnyObject {
     func loadEventsData()
     func navigateToNewEvent()
     func navigateToEvent(index: Int)
+    func isUsersEvents() -> Bool
 }
 
 class AllEventsPresenter {
@@ -21,25 +22,42 @@ class AllEventsPresenter {
     var interactor: EventsInteractorInput
     private let coordinator: EventsCoordinatorInput
     var presentationModel: AllEventsPresentationModel?
-    init(view: AllEventsView, interactor: EventsInteractorInput, coordinator: EventsCoordinatorInput) {
+    private let userid: UUID?
+    init(view: AllEventsView,
+         interactor: EventsInteractorInput,
+         coordinator: EventsCoordinatorInput,
+         userid: UUID? = nil) {
         self.view = view
         self.interactor = interactor
         self.coordinator = coordinator
+        self.userid = userid
     }
 }
 
 extension AllEventsPresenter: AllEventsPresenterInput {
     func loadEventsData() {
-        interactor.getEvents { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let events):
-                let tempPresentationModel = AllEventsPresentationModel(events: events)
-                self.view?.loadEventsData(tempPresentationModel)
-            case .failure(.error(let message)):
-                self.view?.showErrorAlert(message: message, handler: nil)
+        if let userid = userid {
+            interactor.getEventsByUserId(id: userid) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let events):
+                    let tempPresentationModel = AllEventsPresentationModel(events: events)
+                    self.view?.loadEventsData(tempPresentationModel)
+                case .failure(.error(let message)):
+                    self.view?.showErrorAlert(message: message, handler: nil)
+                }
             }
-            
+        } else {
+            interactor.getEvents { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let events):
+                    let tempPresentationModel = AllEventsPresentationModel(events: events)
+                    self.view?.loadEventsData(tempPresentationModel)
+                case .failure(.error(let message)):
+                    self.view?.showErrorAlert(message: message, handler: nil)
+                }
+            }
         }
     }
     func navigateToNewEvent() {
@@ -50,5 +68,8 @@ extension AllEventsPresenter: AllEventsPresenterInput {
             return
         }
         coordinator.navigateToEventDetails(with: event)
+    }
+    func isUsersEvents() -> Bool {
+        self.userid != nil
     }
 }

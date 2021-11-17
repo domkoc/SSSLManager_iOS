@@ -18,12 +18,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ahD-wo-mpi">
-                                <rect key="frame" x="0.0" y="44" width="414" height="748"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="670"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <sections/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyn-j7-wLe">
-                                <rect key="frame" x="8" y="800" width="398" height="62"/>
+                                <rect key="frame" x="8" y="722" width="398" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="S07-Nx-cwe"/>
                                 </constraints>
@@ -35,15 +35,31 @@
                                     <action selector="editButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="k6P-zb-RD8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SuJ-BS-Wy6">
+                                <rect key="frame" x="8" y="792" width="398" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="pyG-4u-jvi"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Events">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="usersEventsButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nNM-RP-W6H"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ahD-wo-mpi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="0wB-l7-O1x"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dyn-j7-wLe" secondAttribute="trailing" constant="8" id="4hW-bu-PAz"/>
+                            <constraint firstItem="SuJ-BS-Wy6" firstAttribute="top" secondItem="dyn-j7-wLe" secondAttribute="bottom" constant="8" id="67m-4p-Hlc"/>
                             <constraint firstItem="dyn-j7-wLe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="6fI-y5-Iho"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dyn-j7-wLe" secondAttribute="bottom" id="JYC-KK-mbD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="SuJ-BS-Wy6" secondAttribute="trailing" constant="8" id="UAs-FZ-QCx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ahD-wo-mpi" secondAttribute="trailing" id="XDf-pC-87x"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="SuJ-BS-Wy6" secondAttribute="bottom" constant="8" id="bbO-J9-wDZ"/>
+                            <constraint firstItem="SuJ-BS-Wy6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="eog-DJ-c1D"/>
                             <constraint firstItem="ahD-wo-mpi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="mJ2-VI-3DY"/>
                             <constraint firstItem="dyn-j7-wLe" firstAttribute="top" secondItem="ahD-wo-mpi" secondAttribute="bottom" constant="8" id="tsw-XC-kkk"/>
                         </constraints>

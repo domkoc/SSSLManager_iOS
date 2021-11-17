@@ -29,11 +29,12 @@ class EventsCoordinator {
         self.interactor = EventsInteractor(eventApi: eventApi,
                                            profileApi: profileApi)
     }
-    func start() {
+    func start(with userid: UUID? = nil) {
         let allEventsViewController = EventsViewControllerFactory.makeAllEventsViewController()
         let allEventsPresenter = AllEventsPresenter(view: allEventsViewController,
                                                     interactor: self.interactor,
-                                                    coordinator: self)
+                                                    coordinator: self,
+                                                    userid: userid)
         allEventsViewController.presenter = allEventsPresenter
         rootViewController?.setNavigationBarHidden(false, animated: false)
         rootViewController?.pushViewController(allEventsViewController, animated: true)
