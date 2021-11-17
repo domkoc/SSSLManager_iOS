@@ -8,7 +8,12 @@
 import Foundation
 
 struct EventsInteractorSuccess {
-    
+    enum Application {
+        case applyed
+    }
+    enum Toggle {
+        case toggled
+    }
 }
 
 enum EventsInteractorError: Error {
@@ -27,6 +32,15 @@ protocol EventsInteractorInput: AnyObject {
     func getEventsByUserId(id: UUID,
                            completion: @escaping (Result<[Event],
                                                   EventsInteractorError>) -> Void)
+    func getEventApplicationState(event: Event,
+                                  completion: @escaping (Result<Bool,
+                                                         EventsInteractorError>) -> Void)
+    func applyToEvent(event: Event,
+                      completion: @escaping (Result<EventsInteractorSuccess.Application,
+                                             EventsInteractorError>) -> Void)
+    func toggleEventAppliability(event: Event,
+                                 completion: @escaping (Result<EventsInteractorSuccess.Toggle,
+                                                        EventsInteractorError>) -> Void)
 }
 
 class EventsInteractor {
@@ -81,6 +95,43 @@ extension EventsInteractor: EventsInteractorInput {
             switch result {
             case .success(let events):
                 completion(.success(events.asEvent()))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
+        }
+    }
+    func getEventApplicationState(event: Event,
+                                  completion: @escaping (Result<Bool,
+                                                         EventsInteractorError>) -> Void) {
+        eventApi.getEventApplicationState(with: event.id) { result in
+            switch result {
+            case .success(let applicationState):
+                completion(.success(applicationState.did_apply))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
+        }
+        
+    }
+    func applyToEvent(event: Event,
+                      completion: @escaping (Result<EventsInteractorSuccess.Application,
+                                             EventsInteractorError>) -> Void) {
+        eventApi.applyToEvent(with: event.id) { result in
+            switch result {
+            case .success:
+                completion(.success(.applyed))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
+        }
+    }
+    func toggleEventAppliability(event: Event,
+                                 completion: @escaping (Result<EventsInteractorSuccess.Toggle,
+                                                        EventsInteractorError>) -> Void) {
+        eventApi.toggleEventAppliability(with: event.id) { result in
+            switch result {
+            case .success:
+                completion(.success(.toggled))
             case .error(let message):
                 completion(.failure(.error(message)))
             }

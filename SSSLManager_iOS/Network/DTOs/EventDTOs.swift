@@ -21,11 +21,14 @@ struct EventDownloadDto: Decodable {
     var parent_event: UUID?
 }
 
-
 struct NewEventUploadDto: Encodable {
     var title: String
     var description: String
     var startDate: Double
     var endDate: Double
     var location: String
+}
+
+struct EventApplicationStateDto: Decodable {
+    var did_apply: Bool
 }

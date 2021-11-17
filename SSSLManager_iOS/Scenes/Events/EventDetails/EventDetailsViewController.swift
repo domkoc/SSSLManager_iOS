@@ -12,6 +12,8 @@ import UIKit
 protocol EventDetailsView: BaseView {
     var presenter: EventDetailsPresenterInput? { get set }
     func loadData(_ presentationModel: EventDetailsPresentationModel)
+    func toggleApplyButtonState(didApply: Bool)
+    func toggleAppliabilityState(appliable: Bool)
 }
 
 class EventDetailsViewController: UIViewController {
@@ -34,12 +36,19 @@ class EventDetailsViewController: UIViewController {
     }
     private func customizeApplyButton() {
         applyButton.setTitle("Apply", for: .normal)
+        applyButton.tintColor = Colors.greenColor.color
         applyButton.setTitle("Not applyable", for: .disabled)
     }
     @IBAction func usernameButtonTapped(_ sender: UIButton) {
         presenter?.navigateToOrganizerProfile()
     }
     @IBAction func applyButtonTapped(_ sender: UIButton) {
+        guard let isOrganizer = presenter?.isOrganizer() else { return }
+        if isOrganizer {
+            presenter?.toggleAppliability()
+        } else {
+            presenter?.applyToEvent()
+        }
     }
 }
 
@@ -62,6 +71,29 @@ extension EventDetailsViewController: EventDetailsView {
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: location, span: span)
         locationMapView.setRegion(region, animated: true)
-        applyButton.isEnabled = presentationModel.event.isApplyable
+        if presenter?.isOrganizer() ?? false {
+            toggleAppliabilityState(appliable: presentationModel.event.isApplyable)
+        } else {
+            toggleApplyButtonState(didApply: presentationModel.didApplyToEvent ?? false)
+            applyButton.isEnabled = presentationModel.event.isApplyable
+        }
+    }
+    func toggleApplyButtonState(didApply: Bool) {
+        if didApply {
+            applyButton.setTitle("Un-Apply", for: .normal)
+            applyButton.tintColor = Colors.redColor.color
+        } else {
+            applyButton.setTitle("Apply", for: .normal)
+            applyButton.tintColor = Colors.greenColor.color
+        }
+    }
+    func toggleAppliabilityState(appliable: Bool) {
+        if appliable {
+            applyButton.setTitle("Close applications", for: .normal)
+            applyButton.tintColor = Colors.redColor.color
+        } else {
+            applyButton.setTitle("Open applications", for: .normal)
+            applyButton.tintColor = Colors.greenColor.color
+        }
     }
 }

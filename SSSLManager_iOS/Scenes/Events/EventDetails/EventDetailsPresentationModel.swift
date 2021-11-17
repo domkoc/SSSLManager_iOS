@@ -8,6 +8,7 @@
 import Foundation
 
 struct EventDetailsPresentationModel {
-    let event: Event
+    var event: Event
     var organizer: Profile?
+    var didApplyToEvent: Bool?
 }
