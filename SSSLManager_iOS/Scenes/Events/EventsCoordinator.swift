@@ -12,6 +12,7 @@ protocol EventsCoordinatorInput {
     func navigateToNewEvent()
     func navigateToEventDetails(with event: Event)
     func navigateToProfile(of profile: Profile)
+    func navigateToApplicants(of event: Event)
 }
 
 class EventsCoordinator {
@@ -67,5 +68,15 @@ extension EventsCoordinator: EventsCoordinatorInput {
         ProfileCoordinator(rootViewController: rootViewController,
                            appCoordinator: appCoordinator)
             .start(with: profile)
+    }
+    func navigateToApplicants(of event: Event) {
+        let eventApplicantsViewController = EventsViewControllerFactory.makeEventApplicantsViewController()
+        let eventApplicantsPresenter = EventApplicantsPresenter(view: eventApplicantsViewController,
+                                                                interactor: self.interactor,
+                                                                coordinator: self,
+                                                                event: event)
+        eventApplicantsViewController.presenter = eventApplicantsPresenter
+        rootViewController?.setNavigationBarHidden(false, animated: true)
+        rootViewController?.pushViewController(eventApplicantsViewController, animated: true)
     }
 }

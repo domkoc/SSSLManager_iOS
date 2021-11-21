@@ -18,4 +18,7 @@ class EventsViewControllerFactory {
     class func makeEventDetailsViewController() -> EventDetailsViewController {
         Storyboard.eventDetailsViewController.instantiate()
     }
+    class func makeEventApplicantsViewController() -> EventApplicantsViewController {
+        Storyboard.eventApplicantsViewController.instantiate()
+    }
 }

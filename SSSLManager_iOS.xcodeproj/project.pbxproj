@@ -90,6 +90,11 @@
 		D5D43FD927355B2000EDE6B0 /* AuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D43FD827355B2000EDE6B0 /* AuthenticationAPI.swift */; };
 		D5D43FDB27355B6C00EDE6B0 /* APIBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D43FDA27355B6C00EDE6B0 /* APIBase.swift */; };
 		D5D43FDD27355C8A00EDE6B0 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D43FDC27355C8A00EDE6B0 /* Login.swift */; };
+		D5F4DF32274A51BA0045D85B /* EventApplicantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F4DF31274A51BA0045D85B /* EventApplicantsViewController.swift */; };
+		D5F4DF34274A51C80045D85B /* EventApplicantsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F4DF33274A51C80045D85B /* EventApplicantsPresenter.swift */; };
+		D5F4DF36274A51D20045D85B /* EventApplicantsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F4DF35274A51D10045D85B /* EventApplicantsPresentationModel.swift */; };
+		D5F4DF3A274A5FBE0045D85B /* EventApplicantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F4DF38274A5FBE0045D85B /* EventApplicantsTableViewCell.swift */; };
+		D5F4DF3B274A5FBE0045D85B /* EventApplicantsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5F4DF39274A5FBE0045D85B /* EventApplicantsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +185,11 @@
 		D5D43FD827355B2000EDE6B0 /* AuthenticationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAPI.swift; sourceTree = "<group>"; };
 		D5D43FDA27355B6C00EDE6B0 /* APIBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBase.swift; sourceTree = "<group>"; };
 		D5D43FDC27355C8A00EDE6B0 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		D5F4DF31274A51BA0045D85B /* EventApplicantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventApplicantsViewController.swift; sourceTree = "<group>"; };
+		D5F4DF33274A51C80045D85B /* EventApplicantsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventApplicantsPresenter.swift; sourceTree = "<group>"; };
+		D5F4DF35274A51D10045D85B /* EventApplicantsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventApplicantsPresentationModel.swift; sourceTree = "<group>"; };
+		D5F4DF38274A5FBE0045D85B /* EventApplicantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventApplicantsTableViewCell.swift; sourceTree = "<group>"; };
+		D5F4DF39274A5FBE0045D85B /* EventApplicantsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventApplicantsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +318,7 @@
 		D5B846D127426A6900BE14A4 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				D5F4DF30274A51950045D85B /* EventApplicants */,
 				D5BAB3E62743B912006AEE8F /* EventDetails */,
 				D5BAB3E52743B8FE006AEE8F /* NewEvent */,
 				D5B846DC274275B400BE14A4 /* AllEvents */,
@@ -332,6 +343,7 @@
 		D5B846E727427CAF00BE14A4 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				D5F4DF37274A5F960045D85B /* EventApplicants */,
 				D5B846E827427CC300BE14A4 /* AllEvents */,
 			);
 			path = Events;
@@ -534,6 +546,25 @@
 			path = APIs;
 			sourceTree = "<group>";
 		};
+		D5F4DF30274A51950045D85B /* EventApplicants */ = {
+			isa = PBXGroup;
+			children = (
+				D5F4DF31274A51BA0045D85B /* EventApplicantsViewController.swift */,
+				D5F4DF33274A51C80045D85B /* EventApplicantsPresenter.swift */,
+				D5F4DF35274A51D10045D85B /* EventApplicantsPresentationModel.swift */,
+			);
+			path = EventApplicants;
+			sourceTree = "<group>";
+		};
+		D5F4DF37274A5F960045D85B /* EventApplicants */ = {
+			isa = PBXGroup;
+			children = (
+				D5F4DF38274A5FBE0045D85B /* EventApplicantsTableViewCell.swift */,
+				D5F4DF39274A5FBE0045D85B /* EventApplicantsTableViewCell.xib */,
+			);
+			path = EventApplicants;
+			sourceTree = "<group>";
+		};
 		F1CE3E95F87307089A831DAC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,6 +640,7 @@
 				D52912D9273FB3B6004D0731 /* UserProfileTableViewCell.xib in Resources */,
 				D5D43FB727352EF200EDE6B0 /* LaunchScreen.storyboard in Resources */,
 				D5D43FC02735357000EDE6B0 /* Colors.xcassets in Resources */,
+				D5F4DF3B274A5FBE0045D85B /* EventApplicantsTableViewCell.xib in Resources */,
 				D5D43FB427352EF200EDE6B0 /* Images.xcassets in Resources */,
 				D5B846D327426A8500BE14A4 /* Events.storyboard in Resources */,
 				D59685EB2735D323007A3AB2 /* Authentication.storyboard in Resources */,
@@ -688,6 +720,7 @@
 				D5BEF964273563C80054C1B9 /* UserService.swift in Sources */,
 				D5D43FD427354A5200EDE6B0 /* SSSLAuthCredentials.swift in Sources */,
 				D5D43FDD27355C8A00EDE6B0 /* Login.swift in Sources */,
+				D5F4DF32274A51BA0045D85B /* EventApplicantsViewController.swift in Sources */,
 				D56EE85F2736886C0060EA35 /* LoginPresentationModel.swift in Sources */,
 				D5BEF9712735698A0054C1B9 /* URLRequestExtension.swift in Sources */,
 				D5B846E62742768D00BE14A4 /* EventDTOs.swift in Sources */,
@@ -722,6 +755,7 @@
 				D59685F62735D59F007A3AB2 /* Storyboards.swift in Sources */,
 				D5BAB3EE2743BB06006AEE8F /* EventDetailsViewController.swift in Sources */,
 				D59685ED2735D334007A3AB2 /* AuthenticationViewControllerFactory.swift in Sources */,
+				D5F4DF34274A51C80045D85B /* EventApplicantsPresenter.swift in Sources */,
 				D52FC81B27415D250053DF6F /* EditProfileViewController.swift in Sources */,
 				D5BAB3EA2743BADB006AEE8F /* NewEventPresenter.swift in Sources */,
 				D52FC812274127AB0053DF6F /* RegisterViewController.swift in Sources */,
@@ -741,6 +775,7 @@
 				D59DDB0F273E726A00351FAF /* ProfileInteractor.swift in Sources */,
 				D5B846E0274275D700BE14A4 /* AllEventsPresenter.swift in Sources */,
 				D59685F72735D59F007A3AB2 /* Images.swift in Sources */,
+				D5F4DF36274A51D20045D85B /* EventApplicantsPresentationModel.swift in Sources */,
 				D5BEF9782735745A0054C1B9 /* AuthenticationCoordinator.swift in Sources */,
 				D56EE85D273688550060EA35 /* LoginPresenter.swift in Sources */,
 				D5BEF976273573590054C1B9 /* ArrayExtension.swift in Sources */,
@@ -753,6 +788,7 @@
 				D5B846DB27426BAB00BE14A4 /* EventAPI.swift in Sources */,
 				D59685F02735D3DF007A3AB2 /* LoginViewController.swift in Sources */,
 				D5D43FD627354D1D00EDE6B0 /* AuthenticationService.swift in Sources */,
+				D5F4DF3A274A5FBE0045D85B /* EventApplicantsTableViewCell.swift in Sources */,
 				D56EE8612736888D0060EA35 /* BaseView.swift in Sources */,
 				D5B846E42742761400BE14A4 /* Event.swift in Sources */,
 			);

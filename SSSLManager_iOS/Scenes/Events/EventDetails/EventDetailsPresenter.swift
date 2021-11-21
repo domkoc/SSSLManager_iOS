@@ -16,6 +16,7 @@ protocol EventDetailsPresenterInput: AnyObject {
     func applyToEvent()
     func toggleAppliability()
     func isOrganizer() -> Bool
+    func navigateToEventApplications()
 }
 
 class EventDetailsPresenter {
@@ -110,9 +111,9 @@ extension EventDetailsPresenter: EventDetailsPresenterInput {
         }
     }
     func isOrganizer() -> Bool {
-        let a = presentationModel.event.organizerID
-        let b = UserService.shared.currentUser?.id
-        let isOrganizer = a == b
         return presentationModel.event.organizerID == UserService.shared.currentUser?.id
+    }
+    func navigateToEventApplications() {
+        coordinator.navigateToApplicants(of: presentationModel.event)
     }
 }

@@ -20,6 +20,13 @@ protocol EventAPIInput {
                       completion: @escaping (APIBase.EmptyAPIResult) -> Void)
     func toggleEventAppliability(with id: UUID,
                                  completion: @escaping (APIBase.EmptyAPIResult) -> Void)
+    func getApplicantsByEvent(with id: UUID,
+                              completion: @escaping (APIBase.APIResult<[ProfileDownloadDto]>) -> Void)
+    func getWorkersByEvent(with id: UUID,
+                           completion: @escaping (APIBase.APIResult<[ProfileDownloadDto]>) -> Void)
+    func acceptApplicant(_ userid: UUID,
+                         on eventid: UUID,
+                         completion: @escaping (APIBase.EmptyAPIResult) -> Void)
     
 }
 
@@ -121,6 +128,61 @@ extension EventAPI: EventAPIInput {
                                  completion: @escaping (APIBase.EmptyAPIResult) -> Void) {
         NetworkManager.shared.request(method: .post,
                                       path: "/events/\(id.uuidString)/apply/toggle",
+                                      isAuthenticated: true,
+                                      completion: { (result: NetworkManager.Result<EmptyDto>) in
+                                        switch result {
+                                        case .success:
+                                            completion(.success)
+                                        case .customError(let error):
+                                            let message = self.errorManager.errorMessage(for: error)
+                                            completion(.error(message))
+                                        case .other:
+                                            let message = self.errorManager.errorMessage()
+                                            completion(.error(message))
+                                        }
+                                      })
+    }
+    func getApplicantsByEvent(with id: UUID,
+                              completion: @escaping (APIBase.APIResult<[ProfileDownloadDto]>) -> Void) {
+        NetworkManager.shared.request(method: .get,
+                                      path: "/events/\(id.uuidString)/applicants",
+                                      isAuthenticated: true,
+                                      completion: { (result: NetworkManager.Result<[ProfileDownloadDto]>) in
+                                        switch result {
+                                        case .success(let applicants):
+                                            completion(.success(applicants))
+                                        case .customError(let error):
+                                            let message = self.errorManager.errorMessage(for: error)
+                                            completion(.error(message))
+                                        case .other:
+                                            let message = self.errorManager.errorMessage()
+                                            completion(.error(message))
+                                        }
+                                    })
+    }
+    func getWorkersByEvent(with id: UUID,
+                           completion: @escaping (APIBase.APIResult<[ProfileDownloadDto]>) -> Void) {
+        NetworkManager.shared.request(method: .get,
+                                      path: "/events/\(id.uuidString)/workers",
+                                      isAuthenticated: true,
+                                      completion: { (result: NetworkManager.Result<[ProfileDownloadDto]>) in
+                                        switch result {
+                                        case .success(let applicants):
+                                            completion(.success(applicants))
+                                        case .customError(let error):
+                                            let message = self.errorManager.errorMessage(for: error)
+                                            completion(.error(message))
+                                        case .other:
+                                            let message = self.errorManager.errorMessage()
+                                            completion(.error(message))
+                                        }
+                                    })
+    }
+    func acceptApplicant(_ userid: UUID,
+                         on eventid: UUID,
+                         completion: @escaping (APIBase.EmptyAPIResult) -> Void) {
+        NetworkManager.shared.request(method: .post,
+                                      path: "/events/\(eventid.uuidString)/accept/\(userid.uuidString)",
                                       isAuthenticated: true,
                                       completion: { (result: NetworkManager.Result<EmptyDto>) in
                                         switch result {

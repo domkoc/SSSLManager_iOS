@@ -14,6 +14,9 @@ struct EventsInteractorSuccess {
     enum Toggle {
         case toggled
     }
+    enum Accept {
+        case accepted
+    }
 }
 
 enum EventsInteractorError: Error {
@@ -41,6 +44,16 @@ protocol EventsInteractorInput: AnyObject {
     func toggleEventAppliability(event: Event,
                                  completion: @escaping (Result<EventsInteractorSuccess.Toggle,
                                                         EventsInteractorError>) -> Void)
+    func getApplicantsByEvent(id: UUID,
+                              completion: @escaping (Result<[Profile],
+                                                     EventsInteractorError>) -> Void)
+    func getWorkersByEvent(id: UUID,
+                           completion: @escaping (Result<[Profile],
+                                                  EventsInteractorError>) -> Void)
+    func acceptApplication(userid: UUID,
+                           eventid: UUID,
+                           completion: @escaping (Result<EventsInteractorSuccess.Accept,
+                                                  EventsInteractorError>) -> Void)
 }
 
 class EventsInteractor {
@@ -135,6 +148,45 @@ extension EventsInteractor: EventsInteractorInput {
             case .error(let message):
                 completion(.failure(.error(message)))
             }
+        }
+    }
+    func getApplicantsByEvent(id: UUID,
+                              completion: @escaping (Result<[Profile],
+                                                     EventsInteractorError>) -> Void) {
+        eventApi.getApplicantsByEvent(with: id) { result in
+            switch result {
+            case .success(let profileDto):
+                completion(.success(profileDto.map({ Profile(dto: $0) })))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
+        }
+    }
+    func getWorkersByEvent(id: UUID,
+                           completion: @escaping (Result<[Profile],
+                                                  EventsInteractorError>) -> Void) {
+        eventApi.getWorkersByEvent(with: id) { result in
+            switch result {
+            case .success(let profileDto):
+                completion(.success(profileDto.map({ Profile(dto: $0) })))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
+        }
+    }
+    func acceptApplication(userid: UUID,
+                           eventid: UUID,
+                           completion: @escaping (Result<EventsInteractorSuccess.Accept,
+                                                  EventsInteractorError>) -> Void) {
+        eventApi.acceptApplicant(userid,
+                                 on: eventid) { result in
+            switch result {
+            case .success:
+                completion(.success(.accepted))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
+            
         }
     }
 }
