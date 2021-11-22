@@ -17,6 +17,7 @@ protocol EventDetailsPresenterInput: AnyObject {
     func toggleAppliability()
     func isOrganizer() -> Bool
     func navigateToEventApplications()
+    func navigateToSubEvents()
 }
 
 class EventDetailsPresenter {
@@ -115,5 +116,8 @@ extension EventDetailsPresenter: EventDetailsPresenterInput {
     }
     func navigateToEventApplications() {
         coordinator.navigateToApplicants(of: presentationModel.event)
+    }
+    func navigateToSubEvents() {
+        coordinator.navigateToSubEvents(of: presentationModel.event)
     }
 }

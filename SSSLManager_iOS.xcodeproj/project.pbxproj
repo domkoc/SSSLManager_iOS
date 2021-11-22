@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		800CB69259B81D277FDC14BC /* Pods_SSSLManager_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E877306A7A854BF2360FF0 /* Pods_SSSLManager_iOS.framework */; };
 		D50CF72F27444AC5005064AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D50CF72E27444AC5005064AD /* Main.storyboard */; };
+		D526D552274BB562006A5982 /* SubEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526D551274BB562006A5982 /* SubEventsViewController.swift */; };
+		D526D554274BB568006A5982 /* SubEventsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526D553274BB568006A5982 /* SubEventsPresenter.swift */; };
+		D526D556274BB576006A5982 /* SubEventsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526D555274BB576006A5982 /* SubEventsPresentationModel.swift */; };
+		D526D55A274BB9A4006A5982 /* SubEventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526D558274BB9A4006A5982 /* SubEventsTableViewCell.swift */; };
+		D526D55B274BB9A4006A5982 /* SubEventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D526D559274BB9A4006A5982 /* SubEventsTableViewCell.xib */; };
 		D52912D8273FB3B6004D0731 /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52912D6273FB3B6004D0731 /* UserProfileTableViewCell.swift */; };
 		D52912D9273FB3B6004D0731 /* UserProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D52912D7273FB3B6004D0731 /* UserProfileTableViewCell.xib */; };
 		D52912DD273FC0DF004D0731 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52912DC273FC0DF004D0731 /* NibLoadableView.swift */; };
@@ -102,6 +107,11 @@
 		1A793CA0A8F012D6436A570A /* Pods-SSSLManager_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSLManager_iOS.debug.xcconfig"; path = "Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B2B6FAD2AF7F0863E524F028 /* Pods-SSSLManager_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSLManager_iOS.release.xcconfig"; path = "Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		D50CF72E27444AC5005064AD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D526D551274BB562006A5982 /* SubEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubEventsViewController.swift; sourceTree = "<group>"; };
+		D526D553274BB568006A5982 /* SubEventsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubEventsPresenter.swift; sourceTree = "<group>"; };
+		D526D555274BB576006A5982 /* SubEventsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubEventsPresentationModel.swift; sourceTree = "<group>"; };
+		D526D558274BB9A4006A5982 /* SubEventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubEventsTableViewCell.swift; sourceTree = "<group>"; };
+		D526D559274BB9A4006A5982 /* SubEventsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubEventsTableViewCell.xib; sourceTree = "<group>"; };
 		D52912D6273FB3B6004D0731 /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewCell.swift; sourceTree = "<group>"; };
 		D52912D7273FB3B6004D0731 /* UserProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileTableViewCell.xib; sourceTree = "<group>"; };
 		D52912DC273FC0DF004D0731 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
@@ -212,6 +222,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D526D550274BB543006A5982 /* SubEvents */ = {
+			isa = PBXGroup;
+			children = (
+				D526D551274BB562006A5982 /* SubEventsViewController.swift */,
+				D526D553274BB568006A5982 /* SubEventsPresenter.swift */,
+				D526D555274BB576006A5982 /* SubEventsPresentationModel.swift */,
+			);
+			path = SubEvents;
+			sourceTree = "<group>";
+		};
+		D526D557274BB991006A5982 /* SubEvents */ = {
+			isa = PBXGroup;
+			children = (
+				D526D558274BB9A4006A5982 /* SubEventsTableViewCell.swift */,
+				D526D559274BB9A4006A5982 /* SubEventsTableViewCell.xib */,
+			);
+			path = SubEvents;
+			sourceTree = "<group>";
+		};
 		D52912D3273FB385004D0731 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +347,7 @@
 		D5B846D127426A6900BE14A4 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				D526D550274BB543006A5982 /* SubEvents */,
 				D5F4DF30274A51950045D85B /* EventApplicants */,
 				D5BAB3E62743B912006AEE8F /* EventDetails */,
 				D5BAB3E52743B8FE006AEE8F /* NewEvent */,
@@ -343,6 +373,7 @@
 		D5B846E727427CAF00BE14A4 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				D526D557274BB991006A5982 /* SubEvents */,
 				D5F4DF37274A5F960045D85B /* EventApplicants */,
 				D5B846E827427CC300BE14A4 /* AllEvents */,
 			);
@@ -644,6 +675,7 @@
 				D5D43FB427352EF200EDE6B0 /* Images.xcassets in Resources */,
 				D5B846D327426A8500BE14A4 /* Events.storyboard in Resources */,
 				D59685EB2735D323007A3AB2 /* Authentication.storyboard in Resources */,
+				D526D55B274BB9A4006A5982 /* SubEventsTableViewCell.xib in Resources */,
 				D59DDB09273E723000351FAF /* Profile.storyboard in Resources */,
 				D52C3B27273820730060FDFC /* MainScreen.storyboard in Resources */,
 			);
@@ -724,6 +756,7 @@
 				D56EE85F2736886C0060EA35 /* LoginPresentationModel.swift in Sources */,
 				D5BEF9712735698A0054C1B9 /* URLRequestExtension.swift in Sources */,
 				D5B846E62742768D00BE14A4 /* EventDTOs.swift in Sources */,
+				D526D55A274BB9A4006A5982 /* SubEventsTableViewCell.swift in Sources */,
 				D52FC814274127B40053DF6F /* RegisterPresenter.swift in Sources */,
 				D5D43FCA273544E100EDE6B0 /* NetworkConfigurator.swift in Sources */,
 				D52FC81827413C480053DF6F /* OptionalExtension.swift in Sources */,
@@ -777,7 +810,10 @@
 				D59685F72735D59F007A3AB2 /* Images.swift in Sources */,
 				D5F4DF36274A51D20045D85B /* EventApplicantsPresentationModel.swift in Sources */,
 				D5BEF9782735745A0054C1B9 /* AuthenticationCoordinator.swift in Sources */,
+				D526D554274BB568006A5982 /* SubEventsPresenter.swift in Sources */,
+				D526D552274BB562006A5982 /* SubEventsViewController.swift in Sources */,
 				D56EE85D273688550060EA35 /* LoginPresenter.swift in Sources */,
+				D526D556274BB576006A5982 /* SubEventsPresentationModel.swift in Sources */,
 				D5BEF976273573590054C1B9 /* ArrayExtension.swift in Sources */,
 				D59685E72735CCB9007A3AB2 /* ProfileAPI.swift in Sources */,
 				D52912D8273FB3B6004D0731 /* UserProfileTableViewCell.swift in Sources */,

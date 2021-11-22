@@ -27,6 +27,11 @@ protocol EventAPIInput {
     func acceptApplicant(_ userid: UUID,
                          on eventid: UUID,
                          completion: @escaping (APIBase.EmptyAPIResult) -> Void)
+    func getSubEvents(of event: UUID,
+                      completion: @escaping (APIBase.APIResult<[EventDownloadDto]>) -> Void)
+    func createNewSubEvent(for parentEvent: UUID,
+                           with newEvent: NewEventUploadDto,
+                           completion: @escaping (APIBase.APIResult<EventDownloadDto>) -> Void)
     
 }
 
@@ -188,6 +193,44 @@ extension EventAPI: EventAPIInput {
                                         switch result {
                                         case .success:
                                             completion(.success)
+                                        case .customError(let error):
+                                            let message = self.errorManager.errorMessage(for: error)
+                                            completion(.error(message))
+                                        case .other:
+                                            let message = self.errorManager.errorMessage()
+                                            completion(.error(message))
+                                        }
+                                      })
+    }
+    func getSubEvents(of event: UUID,
+                      completion: @escaping (APIBase.APIResult<[EventDownloadDto]>) -> Void) {
+        NetworkManager.shared.request(method: .get,
+                                      path: "/events/\(event.uuidString)/subEvents",
+                                      isAuthenticated: true,
+                                      completion: { (result: NetworkManager.Result<[EventDownloadDto]>) in
+                                        switch result {
+                                        case .success(let events):
+                                            completion(.success(events))
+                                        case .customError(let error):
+                                            let message = self.errorManager.errorMessage(for: error)
+                                            completion(.error(message))
+                                        case .other:
+                                            let message = self.errorManager.errorMessage()
+                                            completion(.error(message))
+                                        }
+                                    })
+    }
+    func createNewSubEvent(for parentEvent: UUID,
+                           with newEvent: NewEventUploadDto,
+                           completion: @escaping (APIBase.APIResult<EventDownloadDto>) -> Void) {
+        NetworkManager.shared.request(method: .post,
+                                      path: "/events/\(parentEvent.uuidString)/addSubEvent",
+                                      body: newEvent,
+                                      isAuthenticated: true,
+                                      completion: { (result: NetworkManager.Result<EventDownloadDto>) in
+                                        switch result {
+                                        case .success(let event):
+                                            completion(.success(event))
                                         case .customError(let error):
                                             let message = self.errorManager.errorMessage(for: error)
                                             completion(.error(message))

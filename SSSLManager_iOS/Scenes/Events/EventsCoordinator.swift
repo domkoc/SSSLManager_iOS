@@ -10,9 +10,12 @@ import UIKit
 
 protocol EventsCoordinatorInput {
     func navigateToNewEvent()
+    func navigateToNewEvent(with parent: Event)
     func navigateToEventDetails(with event: Event)
     func navigateToProfile(of profile: Profile)
     func navigateToApplicants(of event: Event)
+    func navigateBack()
+    func navigateToSubEvents(of event: Event)
 }
 
 class EventsCoordinator {
@@ -52,6 +55,16 @@ extension EventsCoordinator: EventsCoordinatorInput {
         rootViewController?.setNavigationBarHidden(false, animated: true)
         rootViewController?.pushViewController(newEventViewController, animated: true)
     }
+    func navigateToNewEvent(with parent: Event) {
+        let newEventViewController = EventsViewControllerFactory.makeNewEventViewController()
+        let newEventPresenter = NewEventPresenter(view: newEventViewController,
+                                                  interactor: self.interactor,
+                                                  coordinator: self,
+                                                  mainEvent: parent)
+        newEventViewController.presenter = newEventPresenter
+        rootViewController?.setNavigationBarHidden(false, animated: true)
+        rootViewController?.pushViewController(newEventViewController, animated: true)
+    }
     func navigateToEventDetails(with event: Event) {
         let eventDetailsViewController = EventsViewControllerFactory.makeEventDetailsViewController()
         let eventDetailsPresenter = EventDetailsPresenter(view: eventDetailsViewController,
@@ -78,5 +91,18 @@ extension EventsCoordinator: EventsCoordinatorInput {
         eventApplicantsViewController.presenter = eventApplicantsPresenter
         rootViewController?.setNavigationBarHidden(false, animated: true)
         rootViewController?.pushViewController(eventApplicantsViewController, animated: true)
+    }
+    func navigateBack() {
+        rootViewController?.popViewController(animated: true)
+    }
+    func navigateToSubEvents(of event: Event) {
+        let subEventsViewController = EventsViewControllerFactory.makeSubEventsViewController()
+        let subEventsPresenter = SubEventsPresenter(view: subEventsViewController,
+                                                    interactor: self.interactor,
+                                                    coordinator: self,
+                                                    parentEvent: event)
+        subEventsViewController.presenter = subEventsPresenter
+        rootViewController?.setNavigationBarHidden(false, animated: true)
+        rootViewController?.pushViewController(subEventsViewController, animated: true)
     }
 }

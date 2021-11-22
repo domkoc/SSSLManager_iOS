@@ -54,6 +54,13 @@ protocol EventsInteractorInput: AnyObject {
                            eventid: UUID,
                            completion: @escaping (Result<EventsInteractorSuccess.Accept,
                                                   EventsInteractorError>) -> Void)
+    func getSubEvents(of event: Event,
+                      completion: @escaping (Result<[Event],
+                                             EventsInteractorError>) -> Void)
+    func createNewSubEvent(for parentEvent: Event,
+                           newEvent: NewEvent,
+                           completion: @escaping (Result<Event,
+                                                  EventsInteractorError>) -> Void)
 }
 
 class EventsInteractor {
@@ -187,6 +194,31 @@ extension EventsInteractor: EventsInteractorInput {
                 completion(.failure(.error(message)))
             }
             
+        }
+    }
+    func getSubEvents(of event: Event,
+                      completion: @escaping (Result<[Event],
+                                             EventsInteractorError>) -> Void) {
+        eventApi.getSubEvents(of: event.id) { result in
+            switch result {
+            case .success(let eventsDto):
+                completion(.success(eventsDto.map({ Event(dto: $0) })))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
+        }
+    }
+    func createNewSubEvent(for parentEvent: Event,
+                           newEvent: NewEvent,
+                           completion: @escaping (Result<Event,
+                                                  EventsInteractorError>) -> Void) {
+        eventApi.createNewSubEvent(for: parentEvent.id, with: newEvent.dto) { result in
+            switch result {
+            case .success(let event):
+                completion(.success(Event.init(dto: event)))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
         }
     }
 }

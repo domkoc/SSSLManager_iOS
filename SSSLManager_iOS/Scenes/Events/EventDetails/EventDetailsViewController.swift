@@ -53,6 +53,9 @@ class EventDetailsViewController: UIViewController {
     @IBAction func listApplicationsButtonTapped(_ sender: UIButton) {
         presenter?.navigateToEventApplications()
     }
+    @IBAction func listSubEventsButtonTapped(_ sender: UIButton) {
+        presenter?.navigateToSubEvents()
+    }
 }
 
 extension EventDetailsViewController: EventDetailsView {
