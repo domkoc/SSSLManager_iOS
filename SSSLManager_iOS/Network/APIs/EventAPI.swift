@@ -32,7 +32,12 @@ protocol EventAPIInput {
     func createNewSubEvent(for parentEvent: UUID,
                            with newEvent: NewEventUploadDto,
                            completion: @escaping (APIBase.APIResult<EventDownloadDto>) -> Void)
-    
+    func uploadEventPicture(_ image: EventPictureUploadDto,
+                            for event: UUID,
+                            progressCompletion: @escaping (Double) -> Void,
+                            completion: @escaping (APIBase.EmptyAPIResult) -> Void)
+    func getEventPicture(of eventid: UUID,
+                         completion: @escaping (APIBase.APIResult<UIImage>) -> Void)
 }
 
 class EventAPI: APIBase { }
@@ -239,5 +244,39 @@ extension EventAPI: EventAPIInput {
                                             completion(.error(message))
                                         }
                                       })
+    }
+    func uploadEventPicture(_ image: EventPictureUploadDto,
+                            for event: UUID,
+                            progressCompletion: @escaping (Double) -> Void,
+                            completion: @escaping (APIBase.EmptyAPIResult) -> Void) {
+        NetworkManager.shared.uploadPicture(
+            path: "/events/\(event.uuidString)/image",
+            imageData: image.image,
+            completion: { result in
+                switch result {
+                case .success:
+                    completion(.success)
+                case .customError(let error):
+                    let message = self.errorManager.errorMessage(for: error)
+                    completion(.error(message))
+                case .other:
+                    let message = self.errorManager.errorMessage()
+                    completion(.error(message))
+                }
+            },
+            progressHandler: progressCompletion)
+        
+    }
+    func getEventPicture(of eventid: UUID,
+                         completion: @escaping (APIBase.APIResult<UIImage>) -> Void) {
+        NetworkManager.shared.getPicture(
+            path: "/events/\(eventid.uuidString)/image",
+            completion: { result in
+                guard let image = result else {
+                    completion(.error("Could not load image!"))
+                    return
+                }
+                completion(.success(image))
+            })
     }
 }

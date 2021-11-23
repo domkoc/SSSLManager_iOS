@@ -8,5 +8,5 @@
 import Foundation
 
 struct UserProfilePresentationModel {
-    let profile: Profile
+    var profile: Profile
 }

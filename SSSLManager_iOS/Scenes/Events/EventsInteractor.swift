@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct EventsInteractorSuccess {
     enum Application {
@@ -16,6 +17,9 @@ struct EventsInteractorSuccess {
     }
     enum Accept {
         case accepted
+    }
+    enum Upload {
+        case uploaded
     }
 }
 
@@ -61,6 +65,13 @@ protocol EventsInteractorInput: AnyObject {
                            newEvent: NewEvent,
                            completion: @escaping (Result<Event,
                                                   EventsInteractorError>) -> Void)
+    func uploadEventPicture(_ image: Data,
+                            for event: Event,
+                            completion: @escaping (Result<EventsInteractorSuccess.Upload,
+                                                   EventsInteractorError>) -> Void)
+    func getEventImage(of event: Event,
+                         completion: @escaping (Result<UIImage,
+                                                EventsInteractorError>) -> Void)
 }
 
 class EventsInteractor {
@@ -216,6 +227,34 @@ extension EventsInteractor: EventsInteractorInput {
             switch result {
             case .success(let event):
                 completion(.success(Event.init(dto: event)))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
+        }
+    }
+    func uploadEventPicture(_ image: Data,
+                            for event: Event,
+                            completion: @escaping (Result<EventsInteractorSuccess.Upload,
+                                                   EventsInteractorError>) -> Void) {
+        eventApi.uploadEventPicture(EventPictureUploadDto(image: image),
+                                    for: event.id,
+                                    progressCompletion: { _ in },
+                                    completion: { result in
+            switch result {
+            case .success:
+                completion(.success(.uploaded))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
+        })
+    }
+    func getEventImage(of event: Event,
+                         completion: @escaping (Result<UIImage,
+                                                EventsInteractorError>) -> Void) {
+        eventApi.getEventPicture(of: event.id) { result in
+            switch result {
+            case .success(let image):
+                completion(.success(image))
             case .error(let message):
                 completion(.failure(.error(message)))
             }

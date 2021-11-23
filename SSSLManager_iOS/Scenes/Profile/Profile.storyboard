@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ahD-wo-mpi">
-                                <rect key="frame" x="0.0" y="44" width="414" height="670"/>
+                                <rect key="frame" x="0.0" y="194" width="414" height="520"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <sections/>
                             </tableView>
@@ -48,30 +48,49 @@
                                     <action selector="usersEventsButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nNM-RP-W6H"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill.questionmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jDK-FN-lbp">
+                                <rect key="frame" x="132" y="44.5" width="150" height="148"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jDK-FN-lbp" secondAttribute="height" multiplier="1:1" id="io1-FL-bry"/>
+                                    <constraint firstAttribute="height" constant="150" id="mRS-FW-2xM"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="JSV-v9-bEl" appends="YES" id="ZPr-dj-3AV"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ahD-wo-mpi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="0wB-l7-O1x"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dyn-j7-wLe" secondAttribute="trailing" constant="8" id="4hW-bu-PAz"/>
                             <constraint firstItem="SuJ-BS-Wy6" firstAttribute="top" secondItem="dyn-j7-wLe" secondAttribute="bottom" constant="8" id="67m-4p-Hlc"/>
                             <constraint firstItem="dyn-j7-wLe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="6fI-y5-Iho"/>
+                            <constraint firstItem="ahD-wo-mpi" firstAttribute="top" secondItem="jDK-FN-lbp" secondAttribute="bottom" id="F2H-7n-cNy"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="SuJ-BS-Wy6" secondAttribute="trailing" constant="8" id="UAs-FZ-QCx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ahD-wo-mpi" secondAttribute="trailing" id="XDf-pC-87x"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="SuJ-BS-Wy6" secondAttribute="bottom" constant="8" id="bbO-J9-wDZ"/>
                             <constraint firstItem="SuJ-BS-Wy6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="eog-DJ-c1D"/>
+                            <constraint firstItem="jDK-FN-lbp" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="m3T-4z-doc"/>
                             <constraint firstItem="ahD-wo-mpi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="mJ2-VI-3DY"/>
                             <constraint firstItem="dyn-j7-wLe" firstAttribute="top" secondItem="ahD-wo-mpi" secondAttribute="bottom" constant="8" id="tsw-XC-kkk"/>
+                            <constraint firstItem="jDK-FN-lbp" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="zJY-ua-AFp"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="editButton" destination="dyn-j7-wLe" id="Yxf-Mo-AFV"/>
                         <outlet property="editButtonHeightConstraint" destination="S07-Nx-cwe" id="FVi-vK-zeP"/>
                         <outlet property="editButtonTopConstraint" destination="tsw-XC-kkk" id="hsN-2H-Fjd"/>
+                        <outlet property="profilePictureImageView" destination="jDK-FN-lbp" id="Uxi-ow-56l"/>
                         <outlet property="userDetailsTableView" destination="ahD-wo-mpi" id="zvH-gI-Dhv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="JSV-v9-bEl">
+                    <connections>
+                        <action selector="profileImageLongPressed:" destination="Y6W-OH-hqX" id="hxN-ek-fGl"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-26.086956521739133" y="99.776785714285708"/>
         </scene>
@@ -198,6 +217,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="person.fill.questionmark" catalog="system" width="128" height="104"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

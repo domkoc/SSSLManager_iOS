@@ -10,9 +10,11 @@ import UIKit
 
 protocol UserProfileView: BaseView {
     var presenter: UserProfilePresenterInput? { get set }
+    func updateImage(_ image: UIImage)
 }
 
 class UserProfileViewController: UIViewController {
+    @IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet weak var userDetailsTableView: UITableView!
     @IBOutlet weak var editButtonHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var editButtonTopConstraint: NSLayoutConstraint!
@@ -22,12 +24,18 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         customizeViews()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presenter?.loadPicture()
+    }
     private func customizeViews() {
+        customizeImageView()
         customizeTableView()
         customizeEditButton()
     }
+    private func customizeImageView() {
+    }
     private func customizeTableView() {
-        userDetailsTableView.delegate = self
         userDetailsTableView.dataSource = self
         userDetailsTableView.registerCell(UserProfileTableViewCell.self)
     }
@@ -44,9 +52,25 @@ class UserProfileViewController: UIViewController {
     @IBAction func usersEventsButtonTapped(_ sender: UIButton) {
         presenter?.navigateToUsersEvents()
     }
+    @IBAction func profileImageLongPressed(_ sender: UILongPressGestureRecognizer) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            imagePickerController.sourceType = .photoLibrary
+            present(imagePickerController, animated: true, completion: nil)
+        } else {
+            showErrorAlert(message: "Please give acces to your photos in settings", handler: nil)
+        }
+    }
+    private func imageSelected(_ image: UIImage) {
+        presenter?.uploadProfilePicture(image)
+    }
 }
 
 extension UserProfileViewController: UserProfileView {
+    func updateImage(_ image: UIImage) {
+        profilePictureImageView.image = image
+    }
 }
 
 extension UserProfileViewController: UITableViewDataSource {
@@ -59,6 +83,15 @@ extension UserProfileViewController: UITableViewDataSource {
         return cell
     }
 }
-extension UserProfileViewController: UITableViewDelegate {
-    
+
+extension UserProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
+        imageSelected(image)
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
 }

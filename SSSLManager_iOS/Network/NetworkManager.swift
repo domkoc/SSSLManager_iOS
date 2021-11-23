@@ -147,4 +147,44 @@ class NetworkManager {
                 }
             }
     }
+    func uploadPicture(path: String,
+                       imageData: Data,
+                       completion: @escaping NetworkCompletion<EmptyDto>,
+                       progressHandler: @escaping (Double) -> Void) {
+        session.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imageData,
+                                     withName: "image")
+        },
+                       to: serverURL + path,
+                       interceptor: interceptor)
+            .uploadProgress { progress in
+                progressHandler(progress.fractionCompleted)
+            }
+            .response { afResponse in
+                switch afResponse.result {
+                case .success:
+                    completion(.success(EmptyDto()))
+                case .failure(let error):
+                    completion(.other(.error(error)))
+                }
+            }
+    }
+    func getPicture(path: String,
+                    completion: @escaping (UIImage?) -> Void) {
+        guard let request = baseRequest(method: .get, path: path) else { return }
+        let contentTypes = ["image/jpeg"]
+        session.request(request, interceptor: interceptor)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: contentTypes)
+            .response { afResponse in
+                switch afResponse.result {
+                case .success(let data):
+                    guard let data = data,
+                          let image = UIImage(data: data) else { return }
+                    completion(image)
+                case .failure:
+                        completion(nil)
+                }
+            }
+    }
 }

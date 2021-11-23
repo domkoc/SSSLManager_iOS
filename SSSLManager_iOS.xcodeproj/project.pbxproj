@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		800CB69259B81D277FDC14BC /* Pods_SSSLManager_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E877306A7A854BF2360FF0 /* Pods_SSSLManager_iOS.framework */; };
+		D50704A9274D3602002DF215 /* UserPictureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50704A7274D3602002DF215 /* UserPictureTableViewCell.swift */; };
+		D50704AA274D3602002DF215 /* PictureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D50704A8274D3602002DF215 /* PictureTableViewCell.xib */; };
 		D50CF72F27444AC5005064AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D50CF72E27444AC5005064AD /* Main.storyboard */; };
 		D526D552274BB562006A5982 /* SubEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526D551274BB562006A5982 /* SubEventsViewController.swift */; };
 		D526D554274BB568006A5982 /* SubEventsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526D553274BB568006A5982 /* SubEventsPresenter.swift */; };
@@ -106,6 +108,8 @@
 		10E877306A7A854BF2360FF0 /* Pods_SSSLManager_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSSLManager_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A793CA0A8F012D6436A570A /* Pods-SSSLManager_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSLManager_iOS.debug.xcconfig"; path = "Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B2B6FAD2AF7F0863E524F028 /* Pods-SSSLManager_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSLManager_iOS.release.xcconfig"; path = "Target Support Files/Pods-SSSLManager_iOS/Pods-SSSLManager_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		D50704A7274D3602002DF215 /* UserPictureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPictureTableViewCell.swift; sourceTree = "<group>"; };
+		D50704A8274D3602002DF215 /* PictureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PictureTableViewCell.xib; sourceTree = "<group>"; };
 		D50CF72E27444AC5005064AD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D526D551274BB562006A5982 /* SubEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubEventsViewController.swift; sourceTree = "<group>"; };
 		D526D553274BB568006A5982 /* SubEventsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubEventsPresenter.swift; sourceTree = "<group>"; };
@@ -263,6 +267,8 @@
 			children = (
 				D52912D6273FB3B6004D0731 /* UserProfileTableViewCell.swift */,
 				D52912D7273FB3B6004D0731 /* UserProfileTableViewCell.xib */,
+				D50704A7274D3602002DF215 /* UserPictureTableViewCell.swift */,
+				D50704A8274D3602002DF215 /* PictureTableViewCell.xib */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -676,6 +682,7 @@
 				D5B846D327426A8500BE14A4 /* Events.storyboard in Resources */,
 				D59685EB2735D323007A3AB2 /* Authentication.storyboard in Resources */,
 				D526D55B274BB9A4006A5982 /* SubEventsTableViewCell.xib in Resources */,
+				D50704AA274D3602002DF215 /* PictureTableViewCell.xib in Resources */,
 				D59DDB09273E723000351FAF /* Profile.storyboard in Resources */,
 				D52C3B27273820730060FDFC /* MainScreen.storyboard in Resources */,
 			);
@@ -770,6 +777,7 @@
 				D5D43FA827352EF100EDE6B0 /* AppDelegate.swift in Sources */,
 				D5BAB3E82743BAD4006AEE8F /* NewEventViewController.swift in Sources */,
 				D52912DF273FC518004D0731 /* UITableViewExtension.swift in Sources */,
+				D50704A9274D3602002DF215 /* UserPictureTableViewCell.swift in Sources */,
 				D5BEF96E273569410054C1B9 /* ErrorDTOs.swift in Sources */,
 				D52C3B33273825810060FDFC /* MainScreenViewControllerFactory.swift in Sources */,
 				D5BEF973273569C80054C1B9 /* CoadableExtension.swift in Sources */,

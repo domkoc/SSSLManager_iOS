@@ -32,3 +32,7 @@ struct NewEventUploadDto: Encodable {
 struct EventApplicationStateDto: Decodable {
     var did_apply: Bool
 }
+
+struct EventPictureUploadDto: Encodable {
+    let image: Data
+}

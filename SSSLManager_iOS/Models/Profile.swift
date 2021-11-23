@@ -54,7 +54,8 @@ struct Profile: Decodable {
             values.append(UserProfileTableViewCellConfig(title: "Full Name",
                                                          description: fullname))
         }
-        if let nickname = nickname {
+        if let nickname = nickname,
+           !nickname.isEmpty {
             values.append(UserProfileTableViewCellConfig(title: "Nickname",
                                                          description: nickname))
         }

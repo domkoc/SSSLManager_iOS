@@ -14,14 +14,17 @@ protocol EventDetailsView: BaseView {
     func loadData(_ presentationModel: EventDetailsPresentationModel)
     func toggleApplyButtonState(didApply: Bool)
     func toggleAppliabilityState(appliable: Bool)
+    func updateImage(_ image: UIImage)
 }
 
 class EventDetailsViewController: UIViewController {
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var usernameButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationMapView: MKMapView!
     @IBOutlet weak var applyButton: UIButton!
+    @IBOutlet weak var contentScrollView: UIScrollView!
     var presenter: EventDetailsPresenterInput?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +33,8 @@ class EventDetailsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         presenter?.loadEventData()
+        presenter?.loadImage()
+        contentScrollView.flashScrollIndicators()
     }
     private func customizeViews() {
         customizeApplyButton()
@@ -55,6 +60,21 @@ class EventDetailsViewController: UIViewController {
     }
     @IBAction func listSubEventsButtonTapped(_ sender: UIButton) {
         presenter?.navigateToSubEvents()
+    }
+    @IBAction func imageViewLongPressed(_ sender: UILongPressGestureRecognizer) {
+        if presenter?.isOrganizer() ?? false {
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                let imagePickerController = UIImagePickerController()
+                imagePickerController.delegate = self
+                imagePickerController.sourceType = .photoLibrary
+                present(imagePickerController, animated: true, completion: nil)
+            } else {
+                showErrorAlert(message: "Please give acces to your photos in settings", handler: nil)
+            }
+        }
+    }
+    private func imageSelected(_ image: UIImage) {
+        presenter?.uploadEventPicture(image)
     }
 }
 
@@ -101,5 +121,21 @@ extension EventDetailsViewController: EventDetailsView {
             applyButton.setTitle("Open applications", for: .normal)
             applyButton.tintColor = Colors.greenColor.color
         }
+    }
+    func updateImage(_ image: UIImage) {
+        imageView.image = image
+        contentScrollView.flashScrollIndicators()
+    }
+}
+
+extension EventDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
+        imageSelected(image)
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }

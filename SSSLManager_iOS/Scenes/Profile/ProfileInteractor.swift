@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 struct ProfileInteractorSuccess {
     enum Save {
         case saved
+    }
+    enum Upload {
+        case uploaded
     }
 }
 
@@ -21,6 +25,12 @@ protocol ProfileInteractorInput: AnyObject {
     func saveProfile(credentials: EditedProfileCredentials,
                   completion: @escaping (Result<ProfileInteractorSuccess.Save,
                                          ProfileInteractorError>) -> Void)
+    func uploadProfilePicture(_ image: Data,
+                              completion: @escaping (Result<ProfileInteractorSuccess.Upload,
+                                                     ProfileInteractorError>) -> Void)
+    func getProfileImage(of user: Profile,
+                         completion: @escaping (Result<UIImage,
+                                                ProfileInteractorError>) -> Void)
 }
 
 class ProfileInteractor {
@@ -38,6 +48,32 @@ extension ProfileInteractor: ProfileInteractorInput {
             switch result {
             case .success:
                 completion(.success(.saved))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
+        }
+    }
+    func uploadProfilePicture(_ image: Data,
+                              completion: @escaping (Result<ProfileInteractorSuccess.Upload,
+                                                     ProfileInteractorError>) -> Void) {
+        profileApi.uploadProfilePicture(ProfilePictureUploadDto(image: image),
+                                        progressCompletion: {_ in },
+                                        completion: { result in
+            switch result {
+            case .success:
+                completion(.success(.uploaded))
+            case .error(let message):
+                completion(.failure(.error(message)))
+            }
+        })
+    }
+    func getProfileImage(of user: Profile,
+                         completion: @escaping (Result<UIImage,
+                                                ProfileInteractorError>) -> Void) {
+        profileApi.getProfilePicture(of: user.id) { result in
+            switch result {
+            case .success(let image):
+                completion(.success(image))
             case .error(let message):
                 completion(.failure(.error(message)))
             }

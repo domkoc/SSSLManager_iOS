@@ -60,3 +60,7 @@ struct ProfileEditDto: Encodable {
     let nickname: String?
     let schgroup: SCHgroup?
 }
+
+struct ProfilePictureUploadDto: Encodable {
+    let image: Data
+}

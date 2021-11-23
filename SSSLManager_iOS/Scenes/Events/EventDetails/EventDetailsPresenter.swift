@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol EventDetailsPresenterInput: AnyObject {
     var view: EventDetailsView? { get set }
@@ -18,6 +19,8 @@ protocol EventDetailsPresenterInput: AnyObject {
     func isOrganizer() -> Bool
     func navigateToEventApplications()
     func navigateToSubEvents()
+    func uploadEventPicture(_ image: UIImage)
+    func loadImage()
 }
 
 class EventDetailsPresenter {
@@ -119,5 +122,28 @@ extension EventDetailsPresenter: EventDetailsPresenterInput {
     }
     func navigateToSubEvents() {
         coordinator.navigateToSubEvents(of: presentationModel.event)
+    }
+    func uploadEventPicture(_ image: UIImage) {
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
+        interactor.uploadEventPicture(imageData, for: presentationModel.event) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success:
+                self.view?.updateImage(image)
+            case .failure(.error(let message)):
+                self.view?.showErrorAlert(message: message, handler: nil)
+            }
+        }
+    }
+    func loadImage() {
+        interactor.getEventImage(of: presentationModel.event) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let image):
+                self.view?.updateImage(image)
+            case .failure(.error(let message)):
+                self.view?.showErrorAlert(message: message, handler: nil)
+            }
+        }
     }
 }
